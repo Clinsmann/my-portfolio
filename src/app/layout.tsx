@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from '@/components/ThemeProvider'
 import { yearsOfExperience } from '../lib/utils'
+import Script from 'next/script'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -49,6 +50,18 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
       <body className={inter.className}>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-2EF6QGDHXC"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-2EF6QGDHXC');
+          `}
+        </Script>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
