@@ -20,7 +20,7 @@ const nextConfig = {
   },
   experimental: {
     // Enable experimental features for Next.js 15
-    optimizeCss: true,
+    // optimizeCss: true,
     turbo: {
       rules: {
         '*.svg': {
@@ -39,11 +39,6 @@ const nextConfig = {
             key: 'X-Frame-Options',
             value: 'DENY',
           },
-          // {
-          //   key: 'Content-Security-Policy',
-          //   value:
-          //     "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://res.cloudinary.com; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
-          // },
           {
             key: 'Cross-Origin-Opener-Policy',
             value: 'same-origin',
