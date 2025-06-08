@@ -12,8 +12,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Check types
-
       - name: Deploy to Dokku
         uses: dokku/github-action@master
         with:
