@@ -14,7 +14,7 @@ export const Hero = ({
         <div className="max-w-4xl mx-auto text-center">
           <div className="mb-8">
             <Image
-              src="https://res.cloudinary.com/africhoral/image/upload/w_300,c_fill,ar_1:1,g_auto,r_max/v1749388695/personal-website/ibeanu-hillary-senior-fullstack-engineer-main.jpg"
+              src="https://res.cloudinary.com/africhoral/image/upload/w_300,c_fill,ar_1:1,g_auto,r_max,f_auto,q_auto/v1749388695/personal-website/ibeanu-hillary-senior-fullstack-engineer-main.jpg"
               alt="Ibeanu hillary - Senior Full-Stack Engineer"
               width={200}
               height={200}
@@ -36,6 +36,7 @@ export const Hero = ({
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               size="lg"
+              aria-label="Let's Build Something Amazing"
               onClick={() => scrollToSection('contact')}
               className="group"
             >
@@ -45,6 +46,7 @@ export const Hero = ({
             <Button
               size="lg"
               variant="outline"
+              aria-label="View My Work"
               onClick={() => scrollToSection('expertise')}
             >
               View My Work

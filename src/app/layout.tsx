@@ -5,6 +5,7 @@ import './globals.css'
 import { ThemeProvider } from '@/components/ThemeProvider'
 import { yearsOfExperience } from '../lib/utils'
 import Script from 'next/script'
+import { websiteUrl } from '../lib/conts'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -23,10 +24,10 @@ export const metadata: Metadata = {
     title: 'Ibeanu hillary - Senior Full-Stack Engineer',
     description:
       'Experienced full-stack engineer specializing in React, TypeScript, and Node.js. Delivered 30-70% performance improvements across fintech and adtech platforms.',
-    url: 'https://hillaryibeanu.com',
+    url: websiteUrl,
     siteName: 'Ibeanu hillary Portfolio',
     images: [
-      'https://res.cloudinary.com/africhoral/image/upload/w_1000,ar_16:9,c_fill,g_auto/v1749388695/personal-website/ibeanu-hillary-senior-fullstack-engineer-main.jpg',
+      'https://res.cloudinary.com/africhoral/image/upload/w_1000,ar_16:9,c_fill,f_auto,q_auto/v1749388695/personal-website/ibeanu-hillary-senior-fullstack-engineer-main.jpg',
     ],
     locale: 'en_US',
     type: 'website',
@@ -36,9 +37,33 @@ export const metadata: Metadata = {
     title: 'Ibeanu hillary - Senior Full-Stack Engineer',
     description: `Berlin-based full-stack engineer with ${yearsOfExperience}+ years experience. React, TypeScript, Node.js specialist delivering high-performance web applications.`,
     images: [
-      'https://res.cloudinary.com/africhoral/image/upload/w_1000,ar_16:9,c_fill,g_auto/v1749388695/personal-website/ibeanu-hillary-senior-fullstack-engineer-main.jpg',
+      'https://res.cloudinary.com/africhoral/image/upload/w_1000,ar_16:9,c_fill,f_auto,q_auto/v1749388695/personal-website/ibeanu-hillary-senior-fullstack-engineer-main.jpg',
     ],
   },
+  alternates: {
+    canonical: websiteUrl,
+  },
+}
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Ibeanu hillary',
+  jobTitle: 'Senior Full-Stack Engineer',
+  description: `Senior Full-Stack Engineer with ${yearsOfExperience}+ years experience in React, TypeScript, Node.js`,
+  url: websiteUrl,
+  image:
+    'https://res.cloudinary.com/africhoral/image/upload/w_1000,ar_16:9,c_fill,f_auto,q_auto/v1749388695/personal-website/ibeanu-hillary-senior-fullstack-engineer-main.jpg',
+  sameAs: [
+    'https://www.linkedin.com/in/ibeanuhillary',
+    'https://github.com/clinsmann',
+  ],
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Berlin',
+    addressCountry: 'Germany',
+  },
+  knowsAbout: ['React', 'TypeScript', 'Node.js', 'Full-Stack Development'],
 }
 
 export default function RootLayout({
@@ -50,6 +75,12 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
       <body className={inter.className}>
+        {/* eslint-disable-next-line @next/next/no-script-component-in-head */}
+        <Script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+          id="structured-data"
+        />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-2EF6QGDHXC"
           strategy="afterInteractive"

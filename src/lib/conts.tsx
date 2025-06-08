@@ -8,6 +8,8 @@ import {
   LucideIcon,
 } from 'lucide-react'
 
+export const websiteUrl = 'https://www.ibeanuhillary.com'
+
 export interface Specialization {
   icon: LucideIcon
   title: string

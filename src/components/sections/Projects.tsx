@@ -29,7 +29,8 @@ const projects: Project[] = [
     title: 'Small & Sick Newborn Care Implementation Toolkit',
     description:
       "Developed and launched the comprehensive digital platform for SSNC's global newborn care implementation toolkit, enabling healthcare professionals worldwide to access evidence-based protocols, case studies, and best practices. Built an interactive knowledge-sharing system with advanced search capabilities, multi-language support, and networking features that connects healthcare workers across 50+ countries to reduce neonatal mortality in alignment with UN Sustainable Development Goals.",
-    image: 'https://res.cloudinary.com/africhoral/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1749387702/personal-website/nest-360-website.png',
+    image:
+      'https://res.cloudinary.com/africhoral/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai,f_auto,q_auto/v1749387702/personal-website/nest-360-website.png',
     tags: [
       'Next.js',
       'TypeScript',
@@ -83,7 +84,7 @@ const projects: Project[] = [
     description:
       "Built and optimized the digital platform for Equal Measures 2030's SDG Gender Index, a comprehensive data-driven advocacy tool tracking gender equality progress across 129 countries. Developed interactive data visualizations, real-time country comparisons, and advocacy resources that empowered feminist organizations and policymakers to drive accountability for the UN Sustainable Development Goals.",
     image:
-      'https://res.cloudinary.com/africhoral/image/upload/w_1000,ar_4:4,c_fill,g_auto/v1749388057/personal-website/equal-measures-website.png',
+      'https://res.cloudinary.com/africhoral/image/upload/w_1000,ar_4:4,c_fill,g_auto,f_auto,q_auto/v1749388057/personal-website/equal-measures-website.png',
     tags: ['React', 'TypeScript', 'Node.js', 'PostgreSQL', 'Cloudinary CDN'],
     metrics: [
       {
@@ -117,10 +118,11 @@ export const Project = () => {
               Featured Projects
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-              Here are some of the key projects {"I've"} worked on that demonstrate
-              my expertise in full-stack development, performance optimization,
-              and team leadership. Each project showcases different aspects of
-              my technical skills and the measurable impact {"I've"} delivered.
+              Here are some of the key projects {"I've"} worked on that
+              demonstrate my expertise in full-stack development, performance
+              optimization, and team leadership. Each project showcases
+              different aspects of my technical skills and the measurable impact{' '}
+              {"I've"} delivered.
             </p>
           </div>
 
@@ -138,6 +140,7 @@ export const Project = () => {
                       src={project.image}
                       alt={project.title}
                       fill
+                      priority
                       className="object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-green-600/20 to-teal-600/20" />

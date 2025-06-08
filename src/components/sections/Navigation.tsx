@@ -26,9 +26,20 @@ const DarkModeToggle = () => {
   if (!mounted) return null
 
   return (
-    <Button size="icon" variant="ghost" onClick={handleThemeToggle}>
-      <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-      <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+    <Button
+      size="icon"
+      variant="ghost"
+      onClick={handleThemeToggle}
+      aria-label="Toggle Theme"
+    >
+      <Sun
+        className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"
+        aria-label="Light Mode"
+      />
+      <Moon
+        className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"
+        aria-label="Dark Mode"
+      />
     </Button>
   )
 }
@@ -46,12 +57,15 @@ export const Navigation = ({
     <header className="fixed top-0 w-full bg-background/80 backdrop-blur-md border-b z-50">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <div className="text-xl font-bold">Ibeanu hillary</div>
+          <div className="text-xl font-bold" aria-label="Ibeanu hillary">
+            Ibeanu hillary
+          </div>
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             {navigationItems.map(item => (
               <button
                 key={item.label}
+                aria-label={item.label + ' button'}
                 onClick={() => scrollToSection(item.section)}
                 className="hover:text-primary transition-colors"
               >
@@ -66,6 +80,7 @@ export const Navigation = ({
             <Button
               variant="ghost"
               size="icon"
+              aria-label="Toggle Menu"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? (
@@ -83,6 +98,7 @@ export const Navigation = ({
               {navigationItems.map(item => (
                 <button
                   key={item.label}
+                  aria-label={item.label}
                   onClick={() => scrollToSection(item.section)}
                   className="text-left hover:text-primary transition-colors"
                 >

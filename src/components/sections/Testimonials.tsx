@@ -36,7 +36,9 @@ export const Testimonial = () => {
                 className="hover:shadow-lg transition-shadow"
               >
                 <CardContent className="p-8">
-                  <p className="text-lg mb-6 italic">&quot;{testimonial.quote}&quot;</p>
+                  <p className="text-lg mb-6 italic">
+                    &quot;{testimonial.quote}&quot;
+                  </p>
                   <div className="flex items-center">
                     <div>
                       <div className="font-semibold">{testimonial.author}</div>
