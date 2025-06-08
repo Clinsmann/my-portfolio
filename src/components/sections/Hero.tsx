@@ -14,8 +14,9 @@ export const Hero = ({
         <div className="max-w-4xl mx-auto text-center">
           <div className="mb-8">
             <Image
-              src="https://res.cloudinary.com/africhoral/image/upload/w_300,c_fill,ar_1:1,g_auto,r_max,f_auto,q_auto/v1749388695/personal-website/ibeanu-hillary-senior-fullstack-engineer-main.jpg"
+              src="https://res.cloudinary.com/africhoral/image/upload/w_350,c_fill,ar_1:1,g_auto,r_max,f_auto,q_auto/v1749388695/personal-website/ibeanu-hillary-senior-fullstack-engineer-main.jpg"
               alt="Ibeanu hillary - Senior Full-Stack Engineer"
+              sizes="(max-width: 640px) 250px, (max-width: 1024px) 300px, 350px"
               width={200}
               height={200}
               className="w-48 h-48 rounded-full object-cover border-4 border-white shadow-lg mx-auto mb-8"
