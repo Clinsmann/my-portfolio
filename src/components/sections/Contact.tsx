@@ -2,18 +2,80 @@ import { Button } from '../ui/Button'
 import { Label } from '../ui/Label'
 import { Input } from '../ui/Input'
 import { Textarea } from '../ui/Textarea'
-import { Mail, MapPin, Linkedin, ExternalLink, Github } from 'lucide-react'
-import { useCallback } from 'react'
+import { Mail, MapPin, Linkedin, Github, Loader2, LucideIcon } from 'lucide-react'
+import { useState } from 'react'
+
+const contactUseItems: {
+  icon: LucideIcon
+  label: string
+  link?: string
+  hasExternalLink?: boolean
+}[] = [
+    {
+      icon: Mail,
+      label: 'Ibeanuhillary@gmail.com',
+      link: 'mailto:ibeanuhillary@gmail.com'
+    },
+    {
+      icon: MapPin,
+      label: 'Berlin, Germany',
+    },
+    {
+      icon: Linkedin,
+      label: 'LinkedIn Profile',
+      link: 'https://www.linkedin.com/in/ibeanuhillary',
+      hasExternalLink: true
+    },
+    {
+      icon: Github,
+      label: 'GitHub Profile',
+      link: 'https://github.com/clinsmann',
+      hasExternalLink: true
+    }
+  ]
 
 export const Contact = () => {
-  const handleSubmit = useCallback(
-    async (e: React.FormEvent<HTMLFormElement>) => {
-      e.preventDefault()
-      // Form submission logic would go here
-      console.log('Form submitted')
-    },
-    []
-  )
+
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle')
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    setStatus('idle')
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      })
+
+      if (response.ok) {
+        setStatus('success')
+        setFormData({ name: '', email: '', subject: '', message: '' })
+      } else {
+        setStatus('error')
+      }
+    } catch (error) {
+      setStatus('error')
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData(prev => ({
+      ...prev,
+      [e.target.name]: e.target.value
+    }))
+  }
 
   return (
     <section id="contact" className="py-16 md:py-24">
@@ -23,94 +85,81 @@ export const Contact = () => {
             {"Let's"} Work Together
           </h2>
           <div className="grid lg:grid-cols-2 gap-12">
-            {/* Contact Info */}
             <div>
               <h3 className="text-xl font-semibold mb-6">Get In Touch</h3>
               <div className="space-y-4">
-                <div className="flex items-center space-x-3">
-                  <Mail className="h-5 w-5 text-primary" />
-                  <span>Ibeanuhillary@gmail.com</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <MapPin className="h-5 w-5 text-primary" />
-                  <span>Berlin, Germany</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <Linkedin className="h-5 w-5 text-primary" />
-                  <a
-                    href="https://www.linkedin.com/in/ibeanuhillary"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-primary transition-colors flex items-center"
-                  >
-                    LinkedIn Profile
-                    <ExternalLink className="h-4 w-4 ml-1" />
-                  </a>
-                </div>
-
-                <div className="flex items-center space-x-3">
-                  <Github className="h-5 w-5 text-primary" />
-                  <a
-                    href="https://github.com/clinsmann"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-primary transition-colors flex items-center"
-                  >
-                    GitHub Profile
-                    <ExternalLink className="h-4 w-4 ml-1" />
-                  </a>
-                </div>
+                {contactUseItems.map((item) => (
+                  <div key={item.label} className="flex items-center space-x-3">
+                    <item.icon className="h-5 w-5 text-primary" />
+                    <a href={item.link} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors flex items-center">{item.label}</a>
+                  </div>
+                ))}
               </div>
             </div>
 
-            {/* Contact Form */}
-            <div>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <Label htmlFor="name">Name</Label>
-                    <Input
-                      id="name"
-                      name="name"
-                      placeholder="Your name"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="email">Email</Label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      placeholder="your@email.com"
-                      required
-                    />
-                  </div>
-                </div>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <Label htmlFor="subject">Subject</Label>
+                  <Label htmlFor="name">Name</Label>
                   <Input
-                    id="subject"
-                    name="subject"
-                    placeholder="Project discussion"
                     required
+                    id="name"
+                    name="name"
+                    type="text"
+                    placeholder="Your name"
+                    value={formData.name}
+                    onChange={handleChange}
                   />
                 </div>
                 <div>
-                  <Label htmlFor="message">Message</Label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    placeholder="Tell me about your project..."
-                    rows={5}
+                  <Label htmlFor="email">Email</Label>
+                  <Input
                     required
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder="your@email.com"
+                    value={formData.email}
+                    onChange={handleChange}
                   />
                 </div>
-                <Button type="submit" className="w-full">
-                  Send Message
-                </Button>
-              </form>
-            </div>
+              </div>
+              <div>
+                <Label htmlFor="subject">Subject</Label>
+                <Input
+                  required
+                  id="subject"
+                  name="subject"
+                  placeholder="Project discussion"
+                  value={formData.subject}
+                  onChange={handleChange}
+                />
+              </div>
+              <div>
+                <Label htmlFor="message">Message</Label>
+                <Textarea
+                  required
+                  id="message"
+                  name="message"
+                  placeholder="Tell me about your project..."
+                  rows={5}
+                  value={formData.message}
+                  onChange={handleChange}
+                />
+              </div>
+              <Button type="submit" className="w-full" disabled={isSubmitting}>
+                {isSubmitting && <Loader2 className="h-4 w-4 mr-2 animate-spin" />}
+                {isSubmitting ? 'Sending...' : 'Send Message'}
+              </Button>
+
+              {status === 'success' && (
+                <p className="text-green-600 text-center">Message sent successfully!</p>
+              )}
+              {status === 'error' && (
+                <p className="text-red-600 text-center">Failed to send message. Please try again.</p>
+              )}
+
+            </form>
           </div>
         </div>
       </div>

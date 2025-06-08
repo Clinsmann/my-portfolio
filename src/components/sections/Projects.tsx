@@ -143,7 +143,6 @@ export const Project = () => {
                       sizes="(max-width: 640px) 400px, (max-width: 1024px) 800px, 1000px"
                       className="object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-r from-green-600/20 to-teal-600/20" />
                   </div>
                   <CardContent className="p-8 flex flex-col justify-center lg:order-1">
                     <div className="flex flex-wrap items-center gap-2 mb-4">

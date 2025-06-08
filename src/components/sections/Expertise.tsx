@@ -43,12 +43,13 @@ export const Expertise = () => {
             Technology Stack
           </h3>
           <Tabs defaultValue="Frontend" className="w-full">
-            <TabsList
-              className="grid w-full grid-cols-3 lg:grid-cols-6"
-              defaultValue="Frontend"
-            >
+            <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 h-auto gap-1 p-1">
               {Object.keys(technologyStack).map(key => (
-                <TabsTrigger key={key} value={key}>
+                <TabsTrigger
+                  key={key}
+                  value={key}
+                  className="text-xs sm:text-sm py-2 px-2 sm:px-3 data-[state=active]:bg-background data-[state=active]:text-foreground"
+                >
                   {key}
                 </TabsTrigger>
               ))}
@@ -61,7 +62,7 @@ export const Expertise = () => {
                     <Badge
                       key={tech}
                       variant="secondary"
-                      className="text-sm py-2 px-3"
+                      className="text-xs sm:text-sm py-2 px-3"
                     >
                       {tech}
                     </Badge>
