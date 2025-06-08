@@ -29,7 +29,7 @@ const projects: Project[] = [
     title: 'Small & Sick Newborn Care Implementation Toolkit',
     description:
       "Developed and launched the comprehensive digital platform for SSNC's global newborn care implementation toolkit, enabling healthcare professionals worldwide to access evidence-based protocols, case studies, and best practices. Built an interactive knowledge-sharing system with advanced search capabilities, multi-language support, and networking features that connects healthcare workers across 50+ countries to reduce neonatal mortality in alignment with UN Sustainable Development Goals.",
-    image: 'nest-360-3.png',
+    image: 'https://res.cloudinary.com/africhoral/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1749387702/personal-website/nest-360-website.png',
     tags: [
       'Next.js',
       'TypeScript',
