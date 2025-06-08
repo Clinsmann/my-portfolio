@@ -82,32 +82,56 @@ export const Navigation = ({
               size="icon"
               aria-label="Toggle Menu"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="relative overflow-hidden"
             >
-              {isMenuOpen ? (
-                <X className="h-6 w-6" />
-              ) : (
-                <Menu className="h-6 w-6" />
-              )}
+              <Menu
+                className={`h-6 w-6 transition-all duration-300 absolute ${
+                  isMenuOpen
+                    ? 'rotate-90 scale-0 opacity-0'
+                    : 'rotate-0 scale-100 opacity-100'
+                }`}
+              />
+              <X
+                className={`h-6 w-6 transition-all duration-300 absolute ${
+                  isMenuOpen
+                    ? 'rotate-0 scale-100 opacity-100'
+                    : '-rotate-90 scale-0 opacity-0'
+                }`}
+              />
             </Button>
           </div>
         </div>
         {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <nav className="md:hidden mt-4 pb-4 border-t pt-4">
-            <div className="flex flex-col space-y-4">
-              {navigationItems.map(item => (
-                <button
-                  key={item.label}
-                  aria-label={item.label}
-                  onClick={() => scrollToSection(item.section)}
-                  className="text-left hover:text-primary transition-colors"
-                >
-                  {item.label}
-                </button>
-              ))}
-            </div>
-          </nav>
-        )}
+        <nav
+          className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+            isMenuOpen
+              ? 'max-h-96 opacity-100 mt-4 pb-4 border-t pt-4'
+              : 'max-h-0 opacity-0'
+          }`}
+        >
+          <div className="flex flex-col space-y-4">
+            {navigationItems.map((item, index) => (
+              <button
+                key={item.label}
+                aria-label={item.label}
+                onClick={() => {
+                  scrollToSection(item.section)
+                  setIsMenuOpen(false)
+                }}
+                className={`text-left hover:text-primary transition-all duration-300 transform ${
+                  isMenuOpen
+                    ? 'translate-x-0 opacity-100'
+                    : '-translate-x-4 opacity-0'
+                }`}
+                style={{
+                  transitionDelay: isMenuOpen ? `${index * 50}ms` : '0ms',
+                }}
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
+        </nav>
       </div>
     </header>
   )
