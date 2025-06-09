@@ -4,8 +4,9 @@ import {
   Zap,
   Database,
   Users,
-  ExternalLink, MonitorSmartphone,
-  MapPin
+  ExternalLink,
+  MonitorSmartphone,
+  MapPin,
 } from 'lucide-react'
 import Image from 'next/image'
 

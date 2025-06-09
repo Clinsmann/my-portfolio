@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { PrismaClient } from '@prisma/client'
-import { Resend } from 'resend'
 import { z } from 'zod'
+import { sendContactFormEmail } from '@/lib/email'
 
 const contactSchema = z.object({
   name: z.string().min(1),
@@ -12,34 +12,27 @@ const contactSchema = z.object({
 
 const prisma = new PrismaClient()
 
-const resend = new Resend('re_24hb6g3u_3wn1FaoL4QqaEHZguEYzWq91');
-
 export async function POST(request: NextRequest) {
   try {
     const data = contactSchema.parse(await request.json())
-    const submission = await prisma.contactSubmission.create({data});
 
-    await resend.emails.send({
-      from: 'onboarding@resend.dev',
-      to: 'ibeanuhillary@gmail.com',
-      subject: `New Contact Form: ${data.subject}`,
-      html: `
-        <h3>New Contact Form Submission</h3>
-        <p><strong>Name:</strong> ${data.name}</p>
-        <p><strong>Email:</strong> ${data.email}</p>
-        <p><strong>Subject:</strong> ${data.subject}</p>
-        <p><strong>Message:</strong></p>
-        <p>${data.message.replace(/\n/g, '<br>')}</p>
-        <hr>
-        <p><small>Submitted at: ${new Date().toISOString()}</small></p>
-      `
+    const formData = {
+      name: data.name.trim(),
+      email: data.email.trim().toLowerCase(),
+      subject: data.subject.trim(),
+      message: data.message.trim(),
+    }
+
+    const submission = await prisma.contactSubmission.create({
+      data: formData,
     })
+
+    await sendContactFormEmail(formData)
 
     return NextResponse.json(
       { message: 'Message sent successfully', id: submission.id },
       { status: 200 }
     )
-
   } catch (error) {
     console.error('Contact form error:', error)
 
@@ -55,4 +48,14 @@ export async function POST(request: NextRequest) {
       { status: 500 }
     )
   }
+}
+
+export const GET = async () => {
+  return NextResponse.json(
+    {
+      message: 'Contact API endpoint is working',
+      methods: ['POST'],
+    },
+    { status: 200 }
+  )
 }
