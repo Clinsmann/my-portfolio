@@ -4,11 +4,8 @@ import {
   Zap,
   Database,
   Users,
-  ExternalLink,
-  Code2,
-  Layers,
-  MonitorSmartphone,
-  MapPin,
+  ExternalLink, MonitorSmartphone,
+  MapPin
 } from 'lucide-react'
 import Image from 'next/image'
 
@@ -57,28 +54,28 @@ const projects: Project[] = [
     ],
     link: 'https://newborntoolkit.org/',
   },
-  {
-    title: 'Jungle.ai Flagship Dashboard',
-    description:
-      "Spearheaded the complete redesign and development of Jungle.ai's flagship AI dashboard, resulting in 37% faster load times and significantly improved user experience. Implemented advanced data visualization components and real-time AI model monitoring capabilities for industrial IoT applications.",
-    image: '/images/jungle-ai-dashboard.png',
-    tags: ['Vue.js', 'Python', 'GraphQL', 'AWS'],
-    metrics: [
-      {
-        icon: <Zap className="h-4 w-4 text-green-500 mr-2" />,
-        label: '37% faster load times',
-      },
-      {
-        icon: <Code2 className="h-4 w-4 text-blue-500 mr-2" />,
-        label: 'Real-time AI model monitoring',
-      },
-      {
-        icon: <Layers className="h-4 w-4 text-purple-500 mr-2" />,
-        label: 'Advanced data visualization',
-      },
-    ],
-    link: 'https://www.jungle.ai',
-  },
+  // {
+  //   title: 'Jungle.ai Flagship Dashboard',
+  //   description:
+  //     "Spearheaded the complete redesign and development of Jungle.ai's flagship AI dashboard, resulting in 37% faster load times and significantly improved user experience. Implemented advanced data visualization components and real-time AI model monitoring capabilities for industrial IoT applications.",
+  //   image: '/images/jungle-ai-dashboard.png',
+  //   tags: ['Vue.js', 'Python', 'GraphQL', 'AWS'],
+  //   metrics: [
+  //     {
+  //       icon: <Zap className="h-4 w-4 text-green-500 mr-2" />,
+  //       label: '37% faster load times',
+  //     },
+  //     {
+  //       icon: <Code2 className="h-4 w-4 text-blue-500 mr-2" />,
+  //       label: 'Real-time AI model monitoring',
+  //     },
+  //     {
+  //       icon: <Layers className="h-4 w-4 text-purple-500 mr-2" />,
+  //       label: 'Advanced data visualization',
+  //     },
+  //   ],
+  //   link: 'https://www.jungle.ai',
+  // },
   {
     title: 'Equal Measures 2030 SDG Gender Index Platform',
     description:

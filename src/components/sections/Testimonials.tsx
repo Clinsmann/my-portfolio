@@ -1,4 +1,4 @@
-import { Card, CardContent } from '@/components/ui/Card'
+import { Card, CardContent } from '@/components/ui/Card';
 
 const testimonials = [
   {
@@ -22,6 +22,7 @@ const testimonials = [
 ]
 
 export const Testimonial = () => {
+  return null;
   return (
     <section id="testimonials" className="py-16 md:py-24 bg-muted/50">
       <div className="container mx-auto px-4">
