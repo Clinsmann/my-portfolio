@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { PrismaClient } from '@prisma/client'
 import { z } from 'zod'
 import { sendContactFormEmail } from '@/lib/email'
+import prisma from '@/lib/prisma'
 
 const contactSchema = z.object({
   name: z.string().min(1),
@@ -9,8 +9,6 @@ const contactSchema = z.object({
   subject: z.string().min(1),
   message: z.string().min(1),
 })
-
-const prisma = new PrismaClient()
 
 export async function POST(request: NextRequest) {
   try {

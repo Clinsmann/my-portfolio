@@ -18,28 +18,28 @@ const contactUseItems: {
   link?: string
   hasExternalLink?: boolean
 }[] = [
-    {
-      icon: Mail,
-      label: 'Ibeanuhillary@gmail.com',
-      link: 'mailto:ibeanuhillary@gmail.com',
-    },
-    {
-      icon: MapPin,
-      label: 'Berlin, Germany',
-    },
-    {
-      icon: Linkedin,
-      label: 'LinkedIn Profile',
-      link: 'https://www.linkedin.com/in/ibeanuhillary',
-      hasExternalLink: true,
-    },
-    {
-      icon: Github,
-      label: 'GitHub Profile',
-      link: 'https://github.com/clinsmann',
-      hasExternalLink: true,
-    },
-  ]
+  {
+    icon: Mail,
+    label: 'Ibeanuhillary@gmail.com',
+    link: 'mailto:ibeanuhillary@gmail.com',
+  },
+  {
+    icon: MapPin,
+    label: 'Berlin, Germany',
+  },
+  {
+    icon: Linkedin,
+    label: 'LinkedIn Profile',
+    link: 'https://www.linkedin.com/in/ibeanuhillary',
+    hasExternalLink: true,
+  },
+  {
+    icon: Github,
+    label: 'GitHub Profile',
+    link: 'https://github.com/clinsmann',
+    hasExternalLink: true,
+  },
+]
 
 export type FormData = {
   name: string

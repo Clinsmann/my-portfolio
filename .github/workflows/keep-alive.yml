@@ -1,0 +1,10 @@
+name: Keep Supabase Active
+on:
+  schedule:
+    - cron: '0 */6 * * *' # Every 6 hours
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping endpoint
+        run: curl -f https://leben.ibeanuhillary.com/api/keep-alive
