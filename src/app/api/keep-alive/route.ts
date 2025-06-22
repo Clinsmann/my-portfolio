@@ -5,20 +5,20 @@ export async function GET() {
   try {
     await prisma.contactSubmission.deleteMany({
       where: {
-        email: 'keep-alive@leben.ibeanuhillary.com',
+        email: 'keep-alive@ibeanuhillary.com',
       },
     })
 
     await prisma.contactSubmission.create({
       data: {
         name: 'Keep Alive',
-        email: 'keep-alive@leben.ibeanuhillary.com',
+        email: 'keep-alive@ibeanuhillary.com',
         subject: 'Keep Alive',
-        message: 'Supabase is alive',
+        message: 'prisma database is alive',
       },
     })
 
-    return NextResponse.json({ message: 'Supabase is alive... 💪' })
+    return NextResponse.json({ message: 'prisma database is alive... 💪' })
   } catch (error) {
     console.error('Error pinging endpoint:', error)
   }

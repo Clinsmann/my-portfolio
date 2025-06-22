@@ -1,4 +1,4 @@
-name: Keep Supabase Active
+name: Keep Prisma Database Active
 on:
   schedule:
     - cron: '0 */6 * * *' # Every 6 hours
@@ -7,4 +7,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Ping endpoint
-        run: curl -f https://leben.ibeanuhillary.com/api/keep-alive
+        run: curl -f https://www.ibeanuhillary.com/api/keep-alive
