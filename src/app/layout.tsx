@@ -75,7 +75,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
       <body className={inter.className}>
-        {/* eslint-disable-next-line @next/next/no-script-component-in-head */}
+        {}
         <Script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
