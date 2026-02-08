@@ -7,6 +7,5 @@ static_sites:
       deploy_on_push: true
     build_command: yarn build
     output_dir: out
+    index_document: index.html
     catchall_document: index.html
-    routes:
-      - path: /
