@@ -1,0 +1,11 @@
+name: my-portfolio
+static_sites:
+  - name: my-portfolio
+    github:
+      repo: clinsmann/my-portfolio
+      branch: master
+      deploy_on_push: true
+    build_command: yarn build
+    output_dir: out
+    routes:
+      - path: /
