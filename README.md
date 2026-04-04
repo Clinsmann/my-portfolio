@@ -34,3 +34,14 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## DigitalOcean App Platform
+
+This project uses static export (`output: 'export'`) and deploys the `out` directory. The app spec lives in [`app.yaml`](./app.yaml) and is mirrored at [`.do/app.yaml`](./.do/app.yaml) so App Platform can detect it.
+
+**Important:** Pushing `app.yaml` to Git does not always update your live app spec. After changing the spec, apply it:
+
+1. **CLI:** `doctl apps list` → copy your app ID → `doctl apps update <APP_ID> --spec app.yaml`
+2. **Dashboard:** Apps → your app → **Settings** → **App Spec** → **Edit** → paste the YAML → save (triggers redeploy)
+
+Verify the static site component shows **Output directory** `out`, **Index document** `index.html`, and **Catchall document** `index.html` (or equivalent custom page) if the UI exposes them.
