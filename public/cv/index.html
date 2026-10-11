@@ -9,6 +9,33 @@
       name="description"
       content="Senior Frontend Engineer in Berlin with 8+ years of experience across ad-tech, payments, consumer credit, renewable energy and staffing marketplaces."
     />
+    <link rel="canonical" href="https://www.ibeanuhillary.com/cv/" />
+    <link rel="icon" href="/cv/favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="profile" />
+    <meta property="og:url" content="https://www.ibeanuhillary.com/cv/" />
+    <meta
+      property="og:title"
+      content="Hillary Ibeanu — Senior Frontend Engineer, CV"
+    />
+    <meta
+      property="og:description"
+      content="Senior Frontend Engineer in Berlin. 8+ years across ad-tech, payments, consumer credit, renewable energy and staffing marketplaces."
+    />
+    <meta
+      property="og:image"
+      content="https://res.cloudinary.com/africhoral/image/upload/w_1200,h_630,c_fill,g_auto,f_auto,q_auto/v1749388695/personal-website/ibeanu-hillary-senior-fullstack-engineer-main.jpg"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script>
+      try {
+        const savedTheme = localStorage.getItem('cv-theme')
+        if (savedTheme === 'light' || savedTheme === 'dark') {
+          document.documentElement.dataset.theme = savedTheme
+        }
+      } catch {}
+    </script>
     <style>
       :root {
         --text: #111;
@@ -23,8 +50,20 @@
           -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial,
           sans-serif;
       }
+      :root[data-theme='light'] {
+        color-scheme: light;
+      }
+      :root[data-theme='dark'] {
+        color-scheme: dark;
+        --text: #ececec;
+        --text-soft: #b5b5b5;
+        --muted: #8a8a8a;
+        --line: #3a3a3a;
+        --bg: #121212;
+        --accent: #8fc1ae;
+      }
       @media (prefers-color-scheme: dark) {
-        :root {
+        :root:not([data-theme='light']) {
           --text: #ececec;
           --text-soft: #b5b5b5;
           --muted: #8a8a8a;
@@ -106,7 +145,8 @@
         font-size: 0.9rem;
         color: var(--text-soft);
       }
-      .print-link {
+      .print-link,
+      .theme-toggle {
         padding: 0;
         border: 0;
         font: inherit;
@@ -118,10 +158,20 @@
         transition: background-size 0.25s ease;
       }
       .print-link:hover,
-      .print-link:focus-visible {
+      .print-link:focus-visible,
+      .theme-toggle:hover,
+      .theme-toggle:focus-visible {
         background-size:
           100% 1px,
           100% 1px;
+      }
+
+      .page-footer {
+        margin-top: 72px;
+        padding-top: 20px;
+        border-top: 1px solid var(--line);
+        font-size: 0.9rem;
+        color: var(--muted);
       }
 
       section {
@@ -197,8 +247,112 @@
         margin: 0;
       }
 
+      p,
+      li,
+      dd {
+        text-wrap: pretty;
+      }
+      h1,
+      h2,
+      h3 {
+        text-wrap: balance;
+      }
+      ::selection {
+        background: color-mix(in srgb, var(--accent) 25%, transparent);
+      }
+      strong {
+        font-weight: 600;
+        color: var(--text);
+      }
+
+      section {
+        scroll-margin-top: 72px;
+      }
+      .anchor {
+        margin-left: 6px;
+        color: var(--muted);
+        background: none;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+      }
+      h2:hover .anchor,
+      .anchor:focus-visible {
+        opacity: 1;
+      }
+
+      .earlier > summary {
+        margin-bottom: 24px;
+        font-size: 0.9rem;
+        color: var(--muted);
+        cursor: pointer;
+        list-style: none;
+      }
+      .earlier > summary::-webkit-details-marker {
+        display: none;
+      }
+      .earlier > summary::before {
+        content: '+ ';
+        color: var(--accent);
+      }
+      .earlier[open] > summary::before {
+        content: '− ';
+      }
+      .earlier > summary:hover {
+        color: var(--text);
+      }
+      .earlier > summary:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 3px;
+      }
+
+      .sticky-bar {
+        position: fixed;
+        inset: 0 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        padding: 10px 24px;
+        font-size: 0.9rem;
+        background: color-mix(in srgb, var(--bg) 92%, transparent);
+        backdrop-filter: blur(8px);
+        border-bottom: 1px solid var(--line);
+        transform: translateY(-100%);
+        transition: transform 0.25s ease;
+      }
+      .sticky-bar.is-visible {
+        transform: none;
+      }
+      .sticky-bar-name {
+        font-family: var(--serif);
+        font-size: 1.05rem;
+      }
+
       @media (min-width: 900px) {
-        header {
+        .timeline {
+          position: relative;
+          padding-left: 24px;
+          border-left: 1px solid var(--line);
+        }
+        .timeline .job {
+          position: relative;
+        }
+        .timeline .job::before {
+          content: '';
+          position: absolute;
+          top: 0.55em;
+          left: -28.5px;
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background: var(--bg);
+          border: 1.5px solid var(--accent);
+        }
+      }
+
+      @media (min-width: 900px) {
+        header,
+        .page-footer {
           padding-left: 172px;
         }
         section {
@@ -235,12 +389,17 @@
           animation: none;
         }
         a,
-        .print-link {
+        .print-link,
+        .theme-toggle,
+        .anchor,
+        .sticky-bar {
           transition: none;
         }
       }
       @media print {
-        :root {
+        :root,
+        :root[data-theme] {
+          color-scheme: light;
           --text: #111;
           --text-soft: #444;
           --muted: #666;
@@ -269,15 +428,36 @@
         a {
           background: none;
         }
-        .screen-only {
+        .screen-only,
+        .sticky-bar,
+        .anchor,
+        .earlier > summary {
+          display: none;
+        }
+        .timeline {
+          padding-left: 0;
+          border-left: 0;
+        }
+        .timeline .job::before {
           display: none;
         }
       }
     </style>
   </head>
   <body>
+    <div class="sticky-bar" id="sticky-bar" aria-hidden="true">
+      <span class="sticky-bar-name">Hillary Ibeanu</span>
+      <button
+        type="button"
+        class="print-link"
+        tabindex="-1"
+        onclick="window.print()"
+      >
+        Download PDF
+      </button>
+    </div>
     <main>
-      <header>
+      <header id="page-header">
         <h1>Hillary Ibeanu</h1>
         <p class="role">Senior Frontend Engineer</p>
         <ul class="contact">
@@ -300,7 +480,11 @@
       </header>
 
       <section id="summary">
-        <h2>Summary</h2>
+        <h2>
+          Summary<a class="anchor" href="#summary" aria-label="Link to Summary"
+            >#</a
+          >
+        </h2>
         <div>
           <p>
             Senior Frontend Engineer with 8+ years of experience across ad-tech,
@@ -321,8 +505,15 @@
       </section>
 
       <section id="experience">
-        <h2>Experience</h2>
-        <div>
+        <h2>
+          Experience<a
+            class="anchor"
+            href="#experience"
+            aria-label="Link to Experience"
+            >#</a
+          >
+        </h2>
+        <div class="timeline">
           <article class="job">
             <div class="job-head">
               <h3>Senior Frontend Engineer — Smartly.io</h3>
@@ -340,13 +531,13 @@
               <li>
                 Implemented Pinterest and Reddit as new channels end-to-end,
                 including catalog setup, feed field mapping, image templates and
-                Pinterest multi-image templates; delivered as MDF lead, ahead of
-                schedule
+                Pinterest multi-image templates; delivered as MDF lead,
+                <strong>ahead of schedule</strong>
               </li>
               <li>
                 Led the migration from component-based to config-driven channel
-                support, cutting new-channel integration time by 28% and
-                removing per-channel UI duplication
+                support, cutting new-channel integration time by
+                <strong>28%</strong> and removing per-channel UI duplication
               </li>
               <li>
                 Built LiquidJS-based feed mapping, improving feed processing
@@ -355,7 +546,9 @@
               <li>
                 Built the Catalog Activity Log and catalog health metrics,
                 letting customers trace processing runs and self-diagnose
-                failing feeds (~35% fewer related support requests)
+                failing feeds (<strong
+                  >~35% fewer related support requests</strong
+                >)
               </li>
               <li>
                 Led Segment event instrumentation for catalog and feed
@@ -370,8 +563,9 @@
                 Led Playwright E2E coverage across Meta, Pinterest, TikTok,
                 Snapchat, Reddit and Automation Feed, covering full CRUD
                 workflows and critical customer journeys; reduced
-                regression-related customer issues by ~60–70% (Intercom
-                conversations, CSM escalations)
+                regression-related customer issues by
+                <strong>~60–70%</strong> (Intercom conversations, CSM
+                escalations)
               </li>
               <li>
                 Led the migration from the legacy design system to
@@ -505,95 +699,102 @@
             </ul>
           </article>
 
-          <article class="job">
-            <div class="job-head">
-              <h3>Software Engineer (Payments) — Interswitch Group</h3>
-              <span class="dates">Aug 2019 – Nov 2021</span>
-            </div>
-            <p class="job-meta">Nigeria</p>
-            <p class="job-context">
-              Interswitch is a leading African digital payments company.
-            </p>
-            <ul class="bullets">
-              <li>
-                Upgraded the Quickteller Merchant dispute management API to
-                support the full dispute lifecycle (accept, decline, evidence
-                upload, arbitration), with regression tests guaranteeing no
-                breaking changes for merchants
-              </li>
-              <li>
-                Redesigned transaction search and lookup in the transfer
-                service, letting customer support and operations teams trace
-                transfers by reference, RRN and status, with significantly
-                faster load times for quicker issue resolution
-              </li>
-              <li>
-                Integrated new settlement options into the transfer service,
-                including bank account, wallet and cash pickup settlements
-              </li>
-              <li>
-                Contributed to the Quickteller Merchant app, helping merchants
-                and SMEs track transactions, settlements and disputes
-              </li>
-              <li>
-                One of the first developers on Quickteller Business,
-                Interswitch's merchant payments platform, building business
-                management, KYC and business verification, and user management
-                features
-              </li>
-            </ul>
-          </article>
+          <details class="earlier">
+            <summary>Earlier experience (2018 – 2021)</summary>
+            <article class="job">
+              <div class="job-head">
+                <h3>Software Engineer (Payments) — Interswitch Group</h3>
+                <span class="dates">Aug 2019 – Nov 2021</span>
+              </div>
+              <p class="job-meta">Nigeria</p>
+              <p class="job-context">
+                Interswitch is a leading African digital payments company.
+              </p>
+              <ul class="bullets">
+                <li>
+                  Upgraded the Quickteller Merchant dispute management API to
+                  support the full dispute lifecycle (accept, decline, evidence
+                  upload, arbitration), with regression tests guaranteeing no
+                  breaking changes for merchants
+                </li>
+                <li>
+                  Redesigned transaction search and lookup in the transfer
+                  service, letting customer support and operations teams trace
+                  transfers by reference, RRN and status, with significantly
+                  faster load times for quicker issue resolution
+                </li>
+                <li>
+                  Integrated new settlement options into the transfer service,
+                  including bank account, wallet and cash pickup settlements
+                </li>
+                <li>
+                  Contributed to the Quickteller Merchant app, helping merchants
+                  and SMEs track transactions, settlements and disputes
+                </li>
+                <li>
+                  One of the first developers on Quickteller Business,
+                  Interswitch's merchant payments platform, building business
+                  management, KYC and business verification, and user management
+                  features
+                </li>
+              </ul>
+            </article>
 
-          <article class="job">
-            <div class="job-head">
-              <h3>
-                Software Engineer &amp; IT Support — Altara Credit Limited
-              </h3>
-              <span class="dates">May 2018 – Aug 2019</span>
-            </div>
-            <p class="job-meta">Nigeria</p>
-            <p class="job-context">
-              Altara is a Nigerian "buy now, pay later" consumer-credit company
-              serving underbanked workers and SME owners.
-            </p>
-            <ul class="bullets">
-              <li>
-                Led requirements gathering and architecture for Altara Pay, the
-                repayment and collections platform, and co-implemented it from
-                design to deployment
-              </li>
-              <li>
-                Built the platform as a Laravel monolith with a Vue.js frontend,
-                hosting the first version on Heroku with Heroku Postgres,
-                configuring automated database backups, and storing file uploads
-                in AWS S3
-              </li>
-              <li>
-                Built JWT-based authentication and authorization, securing
-                access to customer and financial data
-              </li>
-              <li>
-                Developed and maintained the Altara 1.0 internal portal,
-                including customer KYC and an employee management system
-              </li>
-              <li>Set up CI/CD pipelines, improving release stability</li>
-              <li>
-                Set up and managed the office local area network (LAN): router
-                and switch configuration, VLAN segmentation, access control
-                lists (ACLs), firewall rules and secure Wi-Fi
-              </li>
-              <li>
-                Diagnosed IT issues, separated business from technical problems,
-                and recommended process changes and feature priorities to the
-                business
-              </li>
-            </ul>
-          </article>
+            <article class="job">
+              <div class="job-head">
+                <h3>
+                  Software Engineer &amp; IT Support — Altara Credit Limited
+                </h3>
+                <span class="dates">May 2018 – Aug 2019</span>
+              </div>
+              <p class="job-meta">Nigeria</p>
+              <p class="job-context">
+                Altara is a Nigerian "buy now, pay later" consumer-credit
+                company serving underbanked workers and SME owners.
+              </p>
+              <ul class="bullets">
+                <li>
+                  Led requirements gathering and architecture for Altara Pay,
+                  the repayment and collections platform, and co-implemented it
+                  from design to deployment
+                </li>
+                <li>
+                  Built the platform as a Laravel monolith with a Vue.js
+                  frontend, hosting the first version on Heroku with Heroku
+                  Postgres, configuring automated database backups, and storing
+                  file uploads in AWS S3
+                </li>
+                <li>
+                  Built JWT-based authentication and authorization, securing
+                  access to customer and financial data
+                </li>
+                <li>
+                  Developed and maintained the Altara 1.0 internal portal,
+                  including customer KYC and an employee management system
+                </li>
+                <li>Set up CI/CD pipelines, improving release stability</li>
+                <li>
+                  Set up and managed the office local area network (LAN): router
+                  and switch configuration, VLAN segmentation, access control
+                  lists (ACLs), firewall rules and secure Wi-Fi
+                </li>
+                <li>
+                  Diagnosed IT issues, separated business from technical
+                  problems, and recommended process changes and feature
+                  priorities to the business
+                </li>
+              </ul>
+            </article>
+          </details>
         </div>
       </section>
 
       <section id="skills">
-        <h2>Skills</h2>
+        <h2>
+          Skills<a class="anchor" href="#skills" aria-label="Link to Skills"
+            >#</a
+          >
+        </h2>
         <dl class="skills">
           <dt>Languages</dt>
           <dd>TypeScript, JavaScript, PHP, Java, SQL</dd>
@@ -653,7 +854,14 @@
       </section>
 
       <section id="education">
-        <h2>Education</h2>
+        <h2>
+          Education<a
+            class="anchor"
+            href="#education"
+            aria-label="Link to Education"
+            >#</a
+          >
+        </h2>
         <div>
           <div class="job-head">
             <h3>B.Eng (Hons), Computer and Electronics Engineering</h3>
@@ -666,7 +874,14 @@
       </section>
 
       <section id="certifications">
-        <h2>Certifications</h2>
+        <h2>
+          Certifications<a
+            class="anchor"
+            href="#certifications"
+            aria-label="Link to Certifications"
+            >#</a
+          >
+        </h2>
         <ul class="bullets">
           <li>
             Goethe-Zertifikat A1: Start Deutsch 1 — Goethe-Institut e.V., 2026
@@ -676,12 +891,68 @@
       </section>
 
       <section id="languages">
-        <h2>Languages</h2>
+        <h2>
+          Languages<a
+            class="anchor"
+            href="#languages"
+            aria-label="Link to Languages"
+            >#</a
+          >
+        </h2>
         <ul class="bullets">
           <li>English — Native</li>
           <li>German — Beginner (A1), actively learning</li>
         </ul>
       </section>
+
+      <footer class="page-footer screen-only">
+        <button type="button" class="theme-toggle" id="theme-toggle">
+          Switch to dark mode
+        </button>
+      </footer>
     </main>
+    <script>
+      const collapsed = []
+      window.addEventListener('beforeprint', () => {
+        document.querySelectorAll('details:not([open])').forEach(details => {
+          collapsed.push(details)
+          details.open = true
+        })
+      })
+      window.addEventListener('afterprint', () => {
+        collapsed.splice(0).forEach(details => {
+          details.open = false
+        })
+      })
+
+      const bar = document.getElementById('sticky-bar')
+      const barButton = bar.querySelector('button')
+      new IntersectionObserver(([entry]) => {
+        const visible = !entry.isIntersecting
+        bar.classList.toggle('is-visible', visible)
+        bar.setAttribute('aria-hidden', String(!visible))
+        barButton.tabIndex = visible ? 0 : -1
+      }).observe(document.getElementById('page-header'))
+
+      const root = document.documentElement
+      const themeToggle = document.getElementById('theme-toggle')
+      const systemDark = window.matchMedia('(prefers-color-scheme: dark)')
+      const currentTheme = () =>
+        root.dataset.theme ?? (systemDark.matches ? 'dark' : 'light')
+      const renderThemeToggle = () => {
+        const nextTheme = currentTheme() === 'dark' ? 'light' : 'dark'
+        themeToggle.textContent = `Switch to ${nextTheme} mode`
+      }
+      themeToggle.addEventListener('click', () => {
+        const nextTheme = currentTheme() === 'dark' ? 'light' : 'dark'
+        root.dataset.theme = nextTheme
+        try {
+          localStorage.setItem('cv-theme', nextTheme)
+        } catch {}
+        renderThemeToggle()
+      })
+      systemDark.addEventListener('change', renderThemeToggle)
+      renderThemeToggle()
+    </script>
   </body>
 </html>

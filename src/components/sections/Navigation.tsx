@@ -59,8 +59,8 @@ export const Navigation = ({
     <header className="fixed top-0 w-full bg-background/80 backdrop-blur-md border-b z-50">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <div className="text-xl font-bold" aria-label="Ibeanu hillary">
-            Ibeanu hillary
+          <div className="text-xl font-bold" aria-label="Hillary Ibeanu">
+            Hillary Ibeanu
           </div>
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
@@ -90,29 +90,26 @@ export const Navigation = ({
               className="relative overflow-hidden"
             >
               <Menu
-                className={`h-6 w-6 transition-all duration-300 absolute ${
-                  isMenuOpen
+                className={`h-6 w-6 transition-all duration-300 absolute ${isMenuOpen
                     ? 'rotate-90 scale-0 opacity-0'
                     : 'rotate-0 scale-100 opacity-100'
-                }`}
+                  }`}
               />
               <X
-                className={`h-6 w-6 transition-all duration-300 absolute ${
-                  isMenuOpen
+                className={`h-6 w-6 transition-all duration-300 absolute ${isMenuOpen
                     ? 'rotate-0 scale-100 opacity-100'
                     : '-rotate-90 scale-0 opacity-0'
-                }`}
+                  }`}
               />
             </Button>
           </div>
         </div>
         {/* Mobile Navigation */}
         <nav
-          className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-            isMenuOpen
+          className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isMenuOpen
               ? 'max-h-96 opacity-100 mt-4 pb-4 border-t pt-4'
               : 'max-h-0 opacity-0'
-          }`}
+            }`}
         >
           <div className="flex flex-col space-y-4">
             {navigationItems.map((item, index) => (
@@ -123,11 +120,10 @@ export const Navigation = ({
                   scrollToSection(item.section)
                   setIsMenuOpen(false)
                 }}
-                className={`text-left hover:text-primary transition-all duration-300 transform ${
-                  isMenuOpen
+                className={`text-left hover:text-primary transition-all duration-300 transform ${isMenuOpen
                     ? 'translate-x-0 opacity-100'
                     : '-translate-x-4 opacity-0'
-                }`}
+                  }`}
                 style={{
                   transitionDelay: isMenuOpen ? `${index * 50}ms` : '0ms',
                 }}
@@ -137,11 +133,10 @@ export const Navigation = ({
             ))}
             <a
               href={CV_PATH}
-              className={`text-left hover:text-primary transition-all duration-300 transform ${
-                isMenuOpen
+              className={`text-left hover:text-primary transition-all duration-300 transform ${isMenuOpen
                   ? 'translate-x-0 opacity-100'
                   : '-translate-x-4 opacity-0'
-              }`}
+                }`}
               style={{
                 transitionDelay: isMenuOpen
                   ? `${navigationItems.length * 50}ms`

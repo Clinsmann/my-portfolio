@@ -4,7 +4,7 @@ export const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="text-center text-muted-foreground">
           <p>
-            &copy; {new Date().getFullYear()} Ibeanu hillary. All rights
+            &copy; {new Date().getFullYear()} Hillary Ibeanu. All rights
             reserved.
           </p>
         </div>

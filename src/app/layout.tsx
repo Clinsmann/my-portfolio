@@ -14,18 +14,18 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title:
-    'Ibeanu hillary - Senior Full-Stack Engineer & Performance Optimization Specialist',
+    'Hillary Ibeanu - Senior Full-Stack Engineer & Performance Optimization Specialist',
   description: `Senior Full-Stack Engineer with ${yearsOfExperience}+ years experience in React, TypeScript, Node.js. Based in Berlin, specializing in performance optimization and scalable web applications for fintech and adtech.`,
   keywords:
     'full-stack developer, react, typescript, nodejs, performance optimization, berlin developer, frontend engineer, backend engineer, fintech, adtech, graphql, nextjs',
-  authors: [{ name: 'Ibeanu hillary' }],
-  creator: 'Ibeanu hillary',
+  authors: [{ name: 'Hillary Ibeanu' }],
+  creator: 'Hillary Ibeanu',
   openGraph: {
-    title: 'Ibeanu hillary - Senior Full-Stack Engineer',
+    title: 'Hillary Ibeanu - Senior Full-Stack Engineer',
     description:
       'Experienced full-stack engineer specializing in React, TypeScript, and Node.js. Delivered 30-70% performance improvements across fintech and adtech platforms.',
     url: websiteUrl,
-    siteName: 'Ibeanu hillary Portfolio',
+    siteName: 'Hillary Ibeanu Portfolio',
     images: [
       'https://res.cloudinary.com/africhoral/image/upload/w_1000,ar_16:9,c_fill,f_auto,q_auto/v1749388695/personal-website/ibeanu-hillary-senior-fullstack-engineer-main.jpg',
     ],
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Ibeanu hillary - Senior Full-Stack Engineer',
+    title: 'Hillary Ibeanu - Senior Full-Stack Engineer',
     description: `Berlin-based full-stack engineer with ${yearsOfExperience}+ years experience. React, TypeScript, Node.js specialist delivering high-performance web applications.`,
     images: [
       'https://res.cloudinary.com/africhoral/image/upload/w_1000,ar_16:9,c_fill,f_auto,q_auto/v1749388695/personal-website/ibeanu-hillary-senior-fullstack-engineer-main.jpg',
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
 const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'Person',
-  name: 'Ibeanu hillary',
+  name: 'Hillary Ibeanu',
   jobTitle: 'Senior Full-Stack Engineer',
   description: `Senior Full-Stack Engineer with ${yearsOfExperience}+ years experience in React, TypeScript, Node.js`,
   url: websiteUrl,
@@ -75,7 +75,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
       <body className={inter.className}>
-        {}
+        { }
         <Script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
