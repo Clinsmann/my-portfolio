@@ -3,50 +3,98 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
     <title>Hillary Ibeanu — Senior Frontend Engineer</title>
     <meta
       name="description"
       content="Senior Frontend Engineer in Berlin with 8+ years of experience across ad-tech, payments, consumer credit, renewable energy and staffing marketplaces."
     />
     <style>
+      :root {
+        --text: #111;
+        --text-soft: #555;
+        --muted: #888;
+        --line: #d4d4d4;
+        --bg: #fff;
+        --accent: #2f5d50;
+        --serif:
+          'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+        --sans:
+          -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial,
+          sans-serif;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --text: #ececec;
+          --text-soft: #b5b5b5;
+          --muted: #8a8a8a;
+          --line: #3a3a3a;
+          --bg: #121212;
+          --accent: #8fc1ae;
+        }
+      }
       * {
         box-sizing: border-box;
       }
       body {
         margin: 0;
-        font:
-          15px/1.65 -apple-system,
-          BlinkMacSystemFont,
-          'Helvetica Neue',
-          Helvetica,
-          Arial,
-          sans-serif;
-        color: #111;
-        background: #fff;
+        font: 15px/1.65 var(--sans);
+        color: var(--text);
+        background: var(--bg);
+        -webkit-font-smoothing: antialiased;
       }
       main {
-        max-width: 680px;
+        max-width: 860px;
         margin: 0 auto;
-        padding: 72px 24px;
+        padding: 80px 24px;
+        animation: fade-in 0.6s ease-out both;
       }
+      @keyframes fade-in {
+        from {
+          opacity: 0;
+          transform: translateY(6px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+
       a {
         color: inherit;
-        text-underline-offset: 3px;
-        text-decoration-color: #bbb;
+        text-decoration: none;
+        background:
+          linear-gradient(var(--accent), var(--accent)) 0 100% / 0 1px no-repeat,
+          linear-gradient(var(--line), var(--line)) 0 100% / 100% 1px no-repeat;
+        transition: background-size 0.25s ease;
       }
       a:hover,
       a:focus-visible {
-        text-decoration-color: #111;
+        background-size:
+          100% 1px,
+          100% 1px;
+      }
+      a:focus-visible,
+      button:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 3px;
+      }
+
+      header {
+        margin-bottom: 8px;
       }
       h1 {
         margin: 0;
-        font-size: 1.6rem;
-        font-weight: 600;
+        font-family: var(--serif);
+        font-size: 2.1rem;
+        font-weight: 500;
         letter-spacing: -0.01em;
+        line-height: 1.15;
       }
       .role {
-        margin: 2px 0 12px;
-        color: #666;
+        margin: 4px 0 14px;
+        color: var(--accent);
+        font-weight: 500;
       }
       .contact {
         margin: 0;
@@ -54,20 +102,38 @@
         list-style: none;
         display: flex;
         flex-wrap: wrap;
-        gap: 4px 16px;
+        gap: 4px 18px;
         font-size: 0.9rem;
-        color: #666;
+        color: var(--text-soft);
       }
+      .print-link {
+        padding: 0;
+        border: 0;
+        font: inherit;
+        color: inherit;
+        cursor: pointer;
+        background:
+          linear-gradient(var(--accent), var(--accent)) 0 100% / 0 1px no-repeat,
+          linear-gradient(var(--line), var(--line)) 0 100% / 100% 1px no-repeat;
+        transition: background-size 0.25s ease;
+      }
+      .print-link:hover,
+      .print-link:focus-visible {
+        background-size:
+          100% 1px,
+          100% 1px;
+      }
+
       section {
         margin-top: 56px;
       }
       h2 {
         margin: 0 0 20px;
-        font-size: 0.75rem;
+        font-size: 0.72rem;
         font-weight: 600;
         text-transform: uppercase;
-        letter-spacing: 0.12em;
-        color: #888;
+        letter-spacing: 0.14em;
+        color: var(--muted);
       }
       h3 {
         margin: 0;
@@ -78,21 +144,35 @@
         margin: 20px 0 6px;
         font-size: 0.8rem;
         font-weight: 500;
-        color: #888;
+        color: var(--muted);
       }
       p {
         margin: 0 0 12px;
       }
+
       .job {
         margin-bottom: 40px;
+      }
+      .job-head {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 0 16px;
+      }
+      .dates {
+        font-size: 0.9rem;
+        color: var(--muted);
+        font-variant-numeric: tabular-nums;
+        white-space: nowrap;
       }
       .job-meta {
         margin: 0 0 8px;
         font-size: 0.9rem;
-        color: #888;
+        color: var(--muted);
       }
       .job-context {
-        color: #555;
+        color: var(--text-soft);
       }
       ul.bullets {
         margin: 0;
@@ -102,7 +182,7 @@
         margin-bottom: 6px;
       }
       ul.bullets li::marker {
-        color: #bbb;
+        color: var(--line);
       }
       dl.skills {
         display: grid;
@@ -111,14 +191,36 @@
         margin: 0;
       }
       dl.skills dt {
-        color: #888;
+        color: var(--muted);
       }
       dl.skills dd {
         margin: 0;
       }
+
+      @media (min-width: 900px) {
+        header {
+          padding-left: 172px;
+        }
+        section {
+          display: grid;
+          grid-template-columns: 140px 1fr;
+          column-gap: 32px;
+        }
+        section > h2 {
+          grid-column: 1;
+          margin: 0;
+          padding-top: 4px;
+        }
+        section > :not(h2) {
+          grid-column: 2;
+        }
+      }
       @media (max-width: 600px) {
         main {
-          padding: 40px 20px;
+          padding: 48px 20px;
+        }
+        h1 {
+          font-size: 1.8rem;
         }
         dl.skills {
           grid-template-columns: 1fr;
@@ -128,19 +230,47 @@
           margin-top: 10px;
         }
       }
+      @media (prefers-reduced-motion: reduce) {
+        main {
+          animation: none;
+        }
+        a,
+        .print-link {
+          transition: none;
+        }
+      }
       @media print {
+        :root {
+          --text: #111;
+          --text-soft: #444;
+          --muted: #666;
+          --line: #ccc;
+          --bg: #fff;
+          --accent: #2f5d50;
+        }
         main {
           padding: 0;
           max-width: none;
+          animation: none;
+        }
+        header {
+          padding-left: 0;
         }
         section {
+          display: block;
           margin-top: 28px;
+        }
+        section > h2 {
+          margin-bottom: 12px;
         }
         .job {
           break-inside: avoid;
         }
         a {
-          text-decoration: none;
+          background: none;
+        }
+        .screen-only {
+          display: none;
         }
       }
     </style>
@@ -160,280 +290,306 @@
             >
           </li>
           <li>Berlin, Germany</li>
-          <li><a href="/">Portfolio</a></li>
+          <li class="screen-only"><a href="/">Portfolio</a></li>
+          <li class="screen-only">
+            <button type="button" class="print-link" onclick="window.print()">
+              Download PDF
+            </button>
+          </li>
         </ul>
       </header>
 
       <section id="summary">
         <h2>Summary</h2>
-        <p>
-          Senior Frontend Engineer with 8+ years of experience across ad-tech,
-          payments, consumer credit, renewable energy and staffing marketplaces.
-          At Smartly.io, I own Feeds &amp; Catalogs for Meta and other
-          high-value channels, having led new platform integrations,
-          config-driven channel architecture, a design system migration and
-          cross-channel E2E testing.
-        </p>
-        <p>
-          Full-stack background in Node.js, Spring Boot and Laravel, from
-          payment APIs to hosting and securing an early-stage platform. Known
-          for raising engineering quality through accessible components,
-          user-centric testing, API contract design with backend teams,
-          mentoring and AI-assisted engineering workflows.
-        </p>
+        <div>
+          <p>
+            Senior Frontend Engineer with 8+ years of experience across ad-tech,
+            payments, consumer credit, renewable energy and staffing
+            marketplaces. At Smartly.io, I own Feeds &amp; Catalogs for Meta and
+            other high-value channels, having led new platform integrations,
+            config-driven channel architecture, a design system migration and
+            cross-channel E2E testing.
+          </p>
+          <p>
+            Full-stack background in Node.js, Spring Boot and Laravel, from
+            payment APIs to hosting and securing an early-stage platform. Known
+            for raising engineering quality through accessible components,
+            user-centric testing, API contract design with backend teams,
+            mentoring and AI-assisted engineering workflows.
+          </p>
+        </div>
       </section>
 
       <section id="experience">
         <h2>Experience</h2>
+        <div>
+          <article class="job">
+            <div class="job-head">
+              <h3>Senior Frontend Engineer — Smartly.io</h3>
+              <span class="dates">Nov 2022 – Present</span>
+            </div>
+            <p class="job-meta">Berlin, Germany</p>
+            <p class="job-context">
+              Own the frontend for Feeds &amp; Catalogs on Meta and other
+              high-value channels (Pinterest, TikTok, Snapchat, Reddit, Google),
+              powering product-catalog advertising for enterprise advertisers.
+            </p>
 
-        <article class="job">
-          <h3>Senior Frontend Engineer — Smartly.io</h3>
-          <p class="job-meta">Berlin, Germany · Nov 2022 – Present</p>
-          <p class="job-context">
-            Own the frontend for Feeds &amp; Catalogs on Meta and other
-            high-value channels (Pinterest, TikTok, Snapchat, Reddit, Google),
-            powering product-catalog advertising for enterprise advertisers.
-          </p>
+            <h4>Platform &amp; Product</h4>
+            <ul class="bullets">
+              <li>
+                Implemented Pinterest and Reddit as new channels end-to-end,
+                including catalog setup, feed field mapping, image templates and
+                Pinterest multi-image templates; delivered as MDF lead, ahead of
+                schedule
+              </li>
+              <li>
+                Led the migration from component-based to config-driven channel
+                support, cutting new-channel integration time by 28% and
+                removing per-channel UI duplication
+              </li>
+              <li>
+                Built LiquidJS-based feed mapping, improving feed processing
+                success and page load speed
+              </li>
+              <li>
+                Built the Catalog Activity Log and catalog health metrics,
+                letting customers trace processing runs and self-diagnose
+                failing feeds (~35% fewer related support requests)
+              </li>
+              <li>
+                Led Segment event instrumentation for catalog and feed
+                monitoring, following the tracking plan to measure adoption and
+                funnel completion
+              </li>
+            </ul>
 
-          <h4>Platform &amp; Product</h4>
-          <ul class="bullets">
-            <li>
-              Implemented Pinterest and Reddit as new channels end-to-end,
-              including catalog setup, feed field mapping, image templates and
-              Pinterest multi-image templates; delivered as MDF lead, ahead of
-              schedule
-            </li>
-            <li>
-              Led the migration from component-based to config-driven channel
-              support, cutting new-channel integration time by 28% and removing
-              per-channel UI duplication
-            </li>
-            <li>
-              Built LiquidJS-based feed mapping, improving feed processing
-              success and page load speed
-            </li>
-            <li>
-              Built the Catalog Activity Log and catalog health metrics, letting
-              customers trace processing runs and self-diagnose failing feeds
-              (~35% fewer related support requests)
-            </li>
-            <li>
-              Led Segment event instrumentation for catalog and feed monitoring,
-              following the tracking plan to measure adoption and funnel
-              completion
-            </li>
-          </ul>
+            <h4>Quality &amp; Developer Experience</h4>
+            <ul class="bullets">
+              <li>
+                Led Playwright E2E coverage across Meta, Pinterest, TikTok,
+                Snapchat, Reddit and Automation Feed, covering full CRUD
+                workflows and critical customer journeys; reduced
+                regression-related customer issues by ~60–70% (Intercom
+                conversations, CSM escalations)
+              </li>
+              <li>
+                Led the migration from the legacy design system to
+                accessibility-first components, and the modernisation of legacy
+                class components into function components, with WCAG-aligned
+                keyboard navigation and screen reader validation, enabling
+                user-centric tests that query the UI by role and label and
+                survive refactors
+              </li>
+              <li>
+                Shifted the test strategy to user-centric integration tests,
+                replacing module mocks with network-level mocking (MSW) and
+                seeded, OpenAPI-typed fixtures, so tests exercise real
+                components as users do; introduced Storybook on the same mocks
+              </li>
+              <li>
+                Contributed to the Jest-to-Vitest migration in a pnpm and
+                Turborepo monorepo: faster feedback loops, native ESM/TypeScript
+                support and simpler test setup
+              </li>
+            </ul>
 
-          <h4>Quality &amp; Developer Experience</h4>
-          <ul class="bullets">
-            <li>
-              Led Playwright E2E coverage across Meta, Pinterest, TikTok,
-              Snapchat, Reddit and Automation Feed, covering full CRUD workflows
-              and critical customer journeys; reduced regression-related
-              customer issues by ~60–70% (Intercom conversations, CSM
-              escalations)
-            </li>
-            <li>
-              Led the migration from the legacy design system to
-              accessibility-first components, and the modernisation of legacy
-              class components into function components, with WCAG-aligned
-              keyboard navigation and screen reader validation, enabling
-              user-centric tests that query the UI by role and label and survive
-              refactors
-            </li>
-            <li>
-              Shifted the test strategy to user-centric integration tests,
-              replacing module mocks with network-level mocking (MSW) and
-              seeded, OpenAPI-typed fixtures, so tests exercise real components
-              as users do; introduced Storybook on the same mocks
-            </li>
-            <li>
-              Contributed to the Jest-to-Vitest migration in a pnpm and
-              Turborepo monorepo: faster feedback loops, native ESM/TypeScript
-              support and simpler test setup
-            </li>
-          </ul>
+            <h4>Technical Leadership</h4>
+            <ul class="bullets">
+              <li>
+                Led API contract design with backend teams (OpenAPI-first,
+                generated typed clients), moving business logic from the
+                frontend to the backend
+              </li>
+              <li>
+                Led product reviews with design on feasibility, edge cases and
+                empty, loading and error states
+              </li>
+              <li>
+                Planned and pulled tech-debt work into sprints, balancing
+                maintainability with feature delivery
+              </li>
+              <li>
+                Mentored engineers through code review on composition over
+                prop-driven APIs, self-contained components, state colocation,
+                user-centric testing, server/UI state separation, URL-driven
+                deep linking, Error Boundary + Suspense, layout-shift-free
+                loading, optimistic updates, defensive programming and runtime
+                API validation
+              </li>
+              <li>
+                Drove AI-assisted development in the team: wrote agent rules and
+                reusable skills (Cursor, Codex CLI) that encode our
+                architecture, testing conventions and migration playbooks, used
+                AI for first-pass code reviews, and connected Jira and Slack
+                through MCP so agents work directly from tickets and threads,
+                while keeping engineers accountable for review and verification
+              </li>
+            </ul>
+          </article>
 
-          <h4>Technical Leadership</h4>
-          <ul class="bullets">
-            <li>
-              Led API contract design with backend teams (OpenAPI-first,
-              generated typed clients), moving business logic from the frontend
-              to the backend
-            </li>
-            <li>
-              Led product reviews with design on feasibility, edge cases and
-              empty, loading and error states
-            </li>
-            <li>
-              Planned and pulled tech-debt work into sprints, balancing
-              maintainability with feature delivery
-            </li>
-            <li>
-              Mentored engineers through code review on composition over
-              prop-driven APIs, self-contained components, state colocation,
-              user-centric testing, server/UI state separation, URL-driven deep
-              linking, Error Boundary + Suspense, layout-shift-free loading,
-              optimistic updates, defensive programming and runtime API
-              validation
-            </li>
-            <li>
-              Drove AI-assisted development in the team: wrote agent rules and
-              reusable skills (Cursor, Codex CLI) that encode our architecture,
-              testing conventions and migration playbooks, used AI for
-              first-pass code reviews, and connected Jira and Slack through MCP
-              so agents work directly from tickets and threads, while keeping
-              engineers accountable for review and verification
-            </li>
-          </ul>
-        </article>
+          <article class="job">
+            <div class="job-head">
+              <h3>Full-Stack Software Engineer — Zenjob GmbH</h3>
+              <span class="dates">Apr 2022 – Oct 2022</span>
+            </div>
+            <p class="job-meta">Germany</p>
+            <ul class="bullets">
+              <li>
+                Designed and built the international talent signup flow with
+                React, TypeScript and Tailwind CSS, with automated tests in the
+                CI/CD pipeline
+              </li>
+              <li>
+                Ran A/B tests on signup variants using ABsmartly to improve
+                conversion and user experience
+              </li>
+              <li>
+                Contributed to job matching features, improving match accuracy
+                between Talents and shifts
+              </li>
+              <li>
+                Built an internal Retool tool (JavaScript + GraphQL) giving the
+                Staffing Operations team visibility into shift fulfilment,
+                Talent applications and bookings
+              </li>
+              <li>
+                Contributed to backend microservices with NestJS (Node.js) and
+                Redis
+              </li>
+              <li>
+                Contributed to architectural decisions, technical refinements
+                and code quality through code reviews
+              </li>
+            </ul>
+          </article>
 
-        <article class="job">
-          <h3>Full-Stack Software Engineer — Zenjob GmbH</h3>
-          <p class="job-meta">Germany · Apr 2022 – Oct 2022</p>
-          <ul class="bullets">
-            <li>
-              Designed and built the international talent signup flow with
-              React, TypeScript and Tailwind CSS, with automated tests in the
-              CI/CD pipeline
-            </li>
-            <li>
-              Ran A/B tests on signup variants using ABsmartly to improve
-              conversion and user experience
-            </li>
-            <li>
-              Contributed to job matching features, improving match accuracy
-              between Talents and shifts
-            </li>
-            <li>
-              Built an internal Retool tool (JavaScript + GraphQL) giving the
-              Staffing Operations team visibility into shift fulfilment, Talent
-              applications and bookings
-            </li>
-            <li>
-              Contributed to backend microservices with NestJS (Node.js) and
-              Redis
-            </li>
-            <li>
-              Contributed to architectural decisions, technical refinements and
-              code quality through code reviews
-            </li>
-          </ul>
-        </article>
+          <article class="job">
+            <div class="job-head">
+              <h3>Frontend Engineer — Jungle.ai</h3>
+              <span class="dates">Nov 2021 – May 2022</span>
+            </div>
+            <p class="job-meta">Portugal</p>
+            <p class="job-context">
+              Jungle.ai builds Canopy, an AI platform that detects abnormal
+              behaviour in wind and solar assets from SCADA sensor data.
+            </p>
+            <ul class="bullets">
+              <li>
+                Led the frontend redesign of Canopy V3, the flagship product,
+                aligning stakeholders on requirements and refactoring the
+                dashboard with accessible components for faster load times and
+                better Core Web Vitals
+              </li>
+              <li>
+                Built real-time alarm tracking with interactive D3.js
+                visualisations, letting operators investigate context-aware
+                alarms through time-series charts of sensor readings against
+                model-predicted normal ranges
+              </li>
+              <li>
+                Rebuilt the shared Vue component library used across all
+                frontend projects, partnering with designers through design
+                reviews to ensure consistency and reusability
+              </li>
+              <li>
+                Introduced and led the adoption of Cypress end-to-end testing
+                for the flagship product, catching regressions earlier and
+                giving the team confidence to ship changes
+              </li>
+              <li>
+                Contributed to user management features using Vue.js,
+                TypeScript, GraphQL and Node.js, and maintained code quality
+                through code reviews
+              </li>
+            </ul>
+          </article>
 
-        <article class="job">
-          <h3>Frontend Engineer — Jungle.ai</h3>
-          <p class="job-meta">Portugal · Nov 2021 – May 2022</p>
-          <p class="job-context">
-            Jungle.ai builds Canopy, an AI platform that detects abnormal
-            behaviour in wind and solar assets from SCADA sensor data.
-          </p>
-          <ul class="bullets">
-            <li>
-              Led the frontend redesign of Canopy V3, the flagship product,
-              aligning stakeholders on requirements and refactoring the
-              dashboard with accessible components for faster load times and
-              better Core Web Vitals
-            </li>
-            <li>
-              Built real-time alarm tracking with interactive D3.js
-              visualisations, letting operators investigate context-aware alarms
-              through time-series charts of sensor readings against
-              model-predicted normal ranges
-            </li>
-            <li>
-              Rebuilt the shared Vue component library used across all frontend
-              projects, partnering with designers through design reviews to
-              ensure consistency and reusability
-            </li>
-            <li>
-              Introduced and led the adoption of Cypress end-to-end testing for
-              the flagship product, catching regressions earlier and giving the
-              team confidence to ship changes
-            </li>
-            <li>
-              Contributed to user management features using Vue.js, TypeScript,
-              GraphQL and Node.js, and maintained code quality through code
-              reviews
-            </li>
-          </ul>
-        </article>
+          <article class="job">
+            <div class="job-head">
+              <h3>Software Engineer (Payments) — Interswitch Group</h3>
+              <span class="dates">Aug 2019 – Nov 2021</span>
+            </div>
+            <p class="job-meta">Nigeria</p>
+            <p class="job-context">
+              Interswitch is a leading African digital payments company.
+            </p>
+            <ul class="bullets">
+              <li>
+                Upgraded the Quickteller Merchant dispute management API to
+                support the full dispute lifecycle (accept, decline, evidence
+                upload, arbitration), with regression tests guaranteeing no
+                breaking changes for merchants
+              </li>
+              <li>
+                Redesigned transaction search and lookup in the transfer
+                service, letting customer support and operations teams trace
+                transfers by reference, RRN and status, with significantly
+                faster load times for quicker issue resolution
+              </li>
+              <li>
+                Integrated new settlement options into the transfer service,
+                including bank account, wallet and cash pickup settlements
+              </li>
+              <li>
+                Contributed to the Quickteller Merchant app, helping merchants
+                and SMEs track transactions, settlements and disputes
+              </li>
+              <li>
+                One of the first developers on Quickteller Business,
+                Interswitch's merchant payments platform, building business
+                management, KYC and business verification, and user management
+                features
+              </li>
+            </ul>
+          </article>
 
-        <article class="job">
-          <h3>Software Engineer (Payments) — Interswitch Group</h3>
-          <p class="job-meta">Nigeria · Aug 2019 – Nov 2021</p>
-          <p class="job-context">
-            Interswitch is a leading African digital payments company.
-          </p>
-          <ul class="bullets">
-            <li>
-              Upgraded the Quickteller Merchant dispute management API to
-              support the full dispute lifecycle (accept, decline, evidence
-              upload, arbitration), with regression tests guaranteeing no
-              breaking changes for merchants
-            </li>
-            <li>
-              Redesigned transaction search and lookup in the transfer service,
-              letting customer support and operations teams trace transfers by
-              reference, RRN and status, with significantly faster load times
-              for quicker issue resolution
-            </li>
-            <li>
-              Integrated new settlement options into the transfer service,
-              including bank account, wallet and cash pickup settlements
-            </li>
-            <li>
-              Contributed to the Quickteller Merchant app, helping merchants and
-              SMEs track transactions, settlements and disputes
-            </li>
-            <li>
-              One of the first developers on Quickteller Business, Interswitch's
-              merchant payments platform, building business management, KYC and
-              business verification, and user management features
-            </li>
-          </ul>
-        </article>
-
-        <article class="job">
-          <h3>Software Engineer &amp; IT Support — Altara Credit Limited</h3>
-          <p class="job-meta">Nigeria · May 2018 – Aug 2019</p>
-          <p class="job-context">
-            Altara is a Nigerian "buy now, pay later" consumer-credit company
-            serving underbanked workers and SME owners.
-          </p>
-          <ul class="bullets">
-            <li>
-              Led requirements gathering and architecture for Altara Pay, the
-              [repayment and collections] platform, and co-implemented it from
-              design to deployment
-            </li>
-            <li>
-              Built the platform as a Laravel monolith with a Vue.js frontend,
-              hosting the first version on Heroku with Heroku Postgres,
-              configuring automated database backups, and storing file uploads
-              in AWS S3
-            </li>
-            <li>
-              Built JWT-based authentication and authorization, securing access
-              to customer and financial data
-            </li>
-            <li>
-              Developed and maintained the Altara 1.0 internal portal, including
-              customer KYC and an employee management system
-            </li>
-            <li>Set up CI/CD pipelines, improving release stability</li>
-            <li>
-              Set up and managed the office local area network (LAN): router and
-              switch configuration, VLAN segmentation, access control lists
-              (ACLs), firewall rules and secure Wi-Fi
-            </li>
-            <li>
-              Diagnosed IT issues, separated business from technical problems,
-              and recommended process changes and feature priorities to the
-              business
-            </li>
-          </ul>
-        </article>
+          <article class="job">
+            <div class="job-head">
+              <h3>
+                Software Engineer &amp; IT Support — Altara Credit Limited
+              </h3>
+              <span class="dates">May 2018 – Aug 2019</span>
+            </div>
+            <p class="job-meta">Nigeria</p>
+            <p class="job-context">
+              Altara is a Nigerian "buy now, pay later" consumer-credit company
+              serving underbanked workers and SME owners.
+            </p>
+            <ul class="bullets">
+              <li>
+                Led requirements gathering and architecture for Altara Pay, the
+                repayment and collections platform, and co-implemented it from
+                design to deployment
+              </li>
+              <li>
+                Built the platform as a Laravel monolith with a Vue.js frontend,
+                hosting the first version on Heroku with Heroku Postgres,
+                configuring automated database backups, and storing file uploads
+                in AWS S3
+              </li>
+              <li>
+                Built JWT-based authentication and authorization, securing
+                access to customer and financial data
+              </li>
+              <li>
+                Developed and maintained the Altara 1.0 internal portal,
+                including customer KYC and an employee management system
+              </li>
+              <li>Set up CI/CD pipelines, improving release stability</li>
+              <li>
+                Set up and managed the office local area network (LAN): router
+                and switch configuration, VLAN segmentation, access control
+                lists (ACLs), firewall rules and secure Wi-Fi
+              </li>
+              <li>
+                Diagnosed IT issues, separated business from technical problems,
+                and recommended process changes and feature priorities to the
+                business
+              </li>
+            </ul>
+          </article>
+        </div>
       </section>
 
       <section id="skills">
@@ -498,10 +654,15 @@
 
       <section id="education">
         <h2>Education</h2>
-        <h3>B.Eng (Hons), Computer and Electronics Engineering</h3>
-        <p class="job-meta">
-          Enugu State University of Science and Technology · 2011 – 2016
-        </p>
+        <div>
+          <div class="job-head">
+            <h3>B.Eng (Hons), Computer and Electronics Engineering</h3>
+            <span class="dates">2011 – 2016</span>
+          </div>
+          <p class="job-meta">
+            Enugu State University of Science and Technology
+          </p>
+        </div>
       </section>
 
       <section id="certifications">
