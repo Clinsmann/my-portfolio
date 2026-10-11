@@ -11,6 +11,8 @@ const navigationItems = [
   { label: 'Contact', section: 'contact' },
 ]
 
+const CV_PATH = '/cv/'
+
 const DarkModeToggle = () => {
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
@@ -72,6 +74,9 @@ export const Navigation = ({
                 {item.label}
               </button>
             ))}
+            <a href={CV_PATH} className="hover:text-primary transition-colors">
+              CV
+            </a>
             <DarkModeToggle />
           </nav>
           {/* Mobile Menu Button */}
@@ -130,6 +135,21 @@ export const Navigation = ({
                 {item.label}
               </button>
             ))}
+            <a
+              href={CV_PATH}
+              className={`text-left hover:text-primary transition-all duration-300 transform ${
+                isMenuOpen
+                  ? 'translate-x-0 opacity-100'
+                  : '-translate-x-4 opacity-0'
+              }`}
+              style={{
+                transitionDelay: isMenuOpen
+                  ? `${navigationItems.length * 50}ms`
+                  : '0ms',
+              }}
+            >
+              CV
+            </a>
           </div>
         </nav>
       </div>

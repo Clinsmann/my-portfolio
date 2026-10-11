@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hillary Ibeanu — Senior Frontend Engineer</title>
+    <meta
+      name="description"
+      content="Senior Frontend Engineer in Berlin with 8+ years of experience across ad-tech, payments, consumer credit, renewable energy and staffing marketplaces."
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font:
+          15px/1.65 -apple-system,
+          BlinkMacSystemFont,
+          'Helvetica Neue',
+          Helvetica,
+          Arial,
+          sans-serif;
+        color: #111;
+        background: #fff;
+      }
+      main {
+        max-width: 680px;
+        margin: 0 auto;
+        padding: 72px 24px;
+      }
+      a {
+        color: inherit;
+        text-underline-offset: 3px;
+        text-decoration-color: #bbb;
+      }
+      a:hover,
+      a:focus-visible {
+        text-decoration-color: #111;
+      }
+      h1 {
+        margin: 0;
+        font-size: 1.6rem;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+      }
+      .role {
+        margin: 2px 0 12px;
+        color: #666;
+      }
+      .contact {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px 16px;
+        font-size: 0.9rem;
+        color: #666;
+      }
+      section {
+        margin-top: 56px;
+      }
+      h2 {
+        margin: 0 0 20px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: #888;
+      }
+      h3 {
+        margin: 0;
+        font-size: 1rem;
+        font-weight: 600;
+      }
+      h4 {
+        margin: 20px 0 6px;
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: #888;
+      }
+      p {
+        margin: 0 0 12px;
+      }
+      .job {
+        margin-bottom: 40px;
+      }
+      .job-meta {
+        margin: 0 0 8px;
+        font-size: 0.9rem;
+        color: #888;
+      }
+      .job-context {
+        color: #555;
+      }
+      ul.bullets {
+        margin: 0;
+        padding-left: 18px;
+      }
+      ul.bullets li {
+        margin-bottom: 6px;
+      }
+      ul.bullets li::marker {
+        color: #bbb;
+      }
+      dl.skills {
+        display: grid;
+        grid-template-columns: 160px 1fr;
+        gap: 6px 16px;
+        margin: 0;
+      }
+      dl.skills dt {
+        color: #888;
+      }
+      dl.skills dd {
+        margin: 0;
+      }
+      @media (max-width: 600px) {
+        main {
+          padding: 40px 20px;
+        }
+        dl.skills {
+          grid-template-columns: 1fr;
+          gap: 0;
+        }
+        dl.skills dt {
+          margin-top: 10px;
+        }
+      }
+      @media print {
+        main {
+          padding: 0;
+          max-width: none;
+        }
+        section {
+          margin-top: 28px;
+        }
+        .job {
+          break-inside: avoid;
+        }
+        a {
+          text-decoration: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>Hillary Ibeanu</h1>
+        <p class="role">Senior Frontend Engineer</p>
+        <ul class="contact">
+          <li>
+            <a href="mailto:Ibeanuhillary@gmail.com">Ibeanuhillary@gmail.com</a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/ibeanuhillary"
+              >linkedin.com/in/ibeanuhillary</a
+            >
+          </li>
+          <li>Berlin, Germany</li>
+          <li><a href="/">Portfolio</a></li>
+        </ul>
+      </header>
+
+      <section id="summary">
+        <h2>Summary</h2>
+        <p>
+          Senior Frontend Engineer with 8+ years of experience across ad-tech,
+          payments, consumer credit, renewable energy and staffing marketplaces.
+          At Smartly.io, I own Feeds &amp; Catalogs for Meta and other
+          high-value channels, having led new platform integrations,
+          config-driven channel architecture, a design system migration and
+          cross-channel E2E testing.
+        </p>
+        <p>
+          Full-stack background in Node.js, Spring Boot and Laravel, from
+          payment APIs to hosting and securing an early-stage platform. Known
+          for raising engineering quality through accessible components,
+          user-centric testing, API contract design with backend teams,
+          mentoring and AI-assisted engineering workflows.
+        </p>
+      </section>
+
+      <section id="experience">
+        <h2>Experience</h2>
+
+        <article class="job">
+          <h3>Senior Frontend Engineer — Smartly.io</h3>
+          <p class="job-meta">Berlin, Germany · Nov 2022 – Present</p>
+          <p class="job-context">
+            Own the frontend for Feeds &amp; Catalogs on Meta and other
+            high-value channels (Pinterest, TikTok, Snapchat, Reddit, Google),
+            powering product-catalog advertising for enterprise advertisers.
+          </p>
+
+          <h4>Platform &amp; Product</h4>
+          <ul class="bullets">
+            <li>
+              Implemented Pinterest and Reddit as new channels end-to-end,
+              including catalog setup, feed field mapping, image templates and
+              Pinterest multi-image templates; delivered as MDF lead, ahead of
+              schedule
+            </li>
+            <li>
+              Led the migration from component-based to config-driven channel
+              support, cutting new-channel integration time by 28% and removing
+              per-channel UI duplication
+            </li>
+            <li>
+              Built LiquidJS-based feed mapping, improving feed processing
+              success and page load speed
+            </li>
+            <li>
+              Built the Catalog Activity Log and catalog health metrics, letting
+              customers trace processing runs and self-diagnose failing feeds
+              (~35% fewer related support requests)
+            </li>
+            <li>
+              Led Segment event instrumentation for catalog and feed monitoring,
+              following the tracking plan to measure adoption and funnel
+              completion
+            </li>
+          </ul>
+
+          <h4>Quality &amp; Developer Experience</h4>
+          <ul class="bullets">
+            <li>
+              Led Playwright E2E coverage across Meta, Pinterest, TikTok,
+              Snapchat, Reddit and Automation Feed, covering full CRUD workflows
+              and critical customer journeys; reduced regression-related
+              customer issues by ~60–70% (Intercom conversations, CSM
+              escalations)
+            </li>
+            <li>
+              Led the migration from the legacy design system to
+              accessibility-first components, and the modernisation of legacy
+              class components into function components, with WCAG-aligned
+              keyboard navigation and screen reader validation, enabling
+              user-centric tests that query the UI by role and label and survive
+              refactors
+            </li>
+            <li>
+              Shifted the test strategy to user-centric integration tests,
+              replacing module mocks with network-level mocking (MSW) and
+              seeded, OpenAPI-typed fixtures, so tests exercise real components
+              as users do; introduced Storybook on the same mocks
+            </li>
+            <li>
+              Contributed to the Jest-to-Vitest migration in a pnpm and
+              Turborepo monorepo: faster feedback loops, native ESM/TypeScript
+              support and simpler test setup
+            </li>
+          </ul>
+
+          <h4>Technical Leadership</h4>
+          <ul class="bullets">
+            <li>
+              Led API contract design with backend teams (OpenAPI-first,
+              generated typed clients), moving business logic from the frontend
+              to the backend
+            </li>
+            <li>
+              Led product reviews with design on feasibility, edge cases and
+              empty, loading and error states
+            </li>
+            <li>
+              Planned and pulled tech-debt work into sprints, balancing
+              maintainability with feature delivery
+            </li>
+            <li>
+              Mentored engineers through code review on composition over
+              prop-driven APIs, self-contained components, state colocation,
+              user-centric testing, server/UI state separation, URL-driven deep
+              linking, Error Boundary + Suspense, layout-shift-free loading,
+              optimistic updates, defensive programming and runtime API
+              validation
+            </li>
+            <li>
+              Drove AI-assisted development in the team: wrote agent rules and
+              reusable skills (Cursor, Codex CLI) that encode our architecture,
+              testing conventions and migration playbooks, used AI for
+              first-pass code reviews, and connected Jira and Slack through MCP
+              so agents work directly from tickets and threads, while keeping
+              engineers accountable for review and verification
+            </li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <h3>Full-Stack Software Engineer — Zenjob GmbH</h3>
+          <p class="job-meta">Germany · Apr 2022 – Oct 2022</p>
+          <ul class="bullets">
+            <li>
+              Designed and built the international talent signup flow with
+              React, TypeScript and Tailwind CSS, with automated tests in the
+              CI/CD pipeline
+            </li>
+            <li>
+              Ran A/B tests on signup variants using ABsmartly to improve
+              conversion and user experience
+            </li>
+            <li>
+              Contributed to job matching features, improving match accuracy
+              between Talents and shifts
+            </li>
+            <li>
+              Built an internal Retool tool (JavaScript + GraphQL) giving the
+              Staffing Operations team visibility into shift fulfilment, Talent
+              applications and bookings
+            </li>
+            <li>
+              Contributed to backend microservices with NestJS (Node.js) and
+              Redis
+            </li>
+            <li>
+              Contributed to architectural decisions, technical refinements and
+              code quality through code reviews
+            </li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <h3>Frontend Engineer — Jungle.ai</h3>
+          <p class="job-meta">Portugal · Nov 2021 – May 2022</p>
+          <p class="job-context">
+            Jungle.ai builds Canopy, an AI platform that detects abnormal
+            behaviour in wind and solar assets from SCADA sensor data.
+          </p>
+          <ul class="bullets">
+            <li>
+              Led the frontend redesign of Canopy V3, the flagship product,
+              aligning stakeholders on requirements and refactoring the
+              dashboard with accessible components for faster load times and
+              better Core Web Vitals
+            </li>
+            <li>
+              Built real-time alarm tracking with interactive D3.js
+              visualisations, letting operators investigate context-aware alarms
+              through time-series charts of sensor readings against
+              model-predicted normal ranges
+            </li>
+            <li>
+              Rebuilt the shared Vue component library used across all frontend
+              projects, partnering with designers through design reviews to
+              ensure consistency and reusability
+            </li>
+            <li>
+              Introduced and led the adoption of Cypress end-to-end testing for
+              the flagship product, catching regressions earlier and giving the
+              team confidence to ship changes
+            </li>
+            <li>
+              Contributed to user management features using Vue.js, TypeScript,
+              GraphQL and Node.js, and maintained code quality through code
+              reviews
+            </li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <h3>Software Engineer (Payments) — Interswitch Group</h3>
+          <p class="job-meta">Nigeria · Aug 2019 – Nov 2021</p>
+          <p class="job-context">
+            Interswitch is a leading African digital payments company.
+          </p>
+          <ul class="bullets">
+            <li>
+              Upgraded the Quickteller Merchant dispute management API to
+              support the full dispute lifecycle (accept, decline, evidence
+              upload, arbitration), with regression tests guaranteeing no
+              breaking changes for merchants
+            </li>
+            <li>
+              Redesigned transaction search and lookup in the transfer service,
+              letting customer support and operations teams trace transfers by
+              reference, RRN and status, with significantly faster load times
+              for quicker issue resolution
+            </li>
+            <li>
+              Integrated new settlement options into the transfer service,
+              including bank account, wallet and cash pickup settlements
+            </li>
+            <li>
+              Contributed to the Quickteller Merchant app, helping merchants and
+              SMEs track transactions, settlements and disputes
+            </li>
+            <li>
+              One of the first developers on Quickteller Business, Interswitch's
+              merchant payments platform, building business management, KYC and
+              business verification, and user management features
+            </li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <h3>Software Engineer &amp; IT Support — Altara Credit Limited</h3>
+          <p class="job-meta">Nigeria · May 2018 – Aug 2019</p>
+          <p class="job-context">
+            Altara is a Nigerian "buy now, pay later" consumer-credit company
+            serving underbanked workers and SME owners.
+          </p>
+          <ul class="bullets">
+            <li>
+              Led requirements gathering and architecture for Altara Pay, the
+              [repayment and collections] platform, and co-implemented it from
+              design to deployment
+            </li>
+            <li>
+              Built the platform as a Laravel monolith with a Vue.js frontend,
+              hosting the first version on Heroku with Heroku Postgres,
+              configuring automated database backups, and storing file uploads
+              in AWS S3
+            </li>
+            <li>
+              Built JWT-based authentication and authorization, securing access
+              to customer and financial data
+            </li>
+            <li>
+              Developed and maintained the Altara 1.0 internal portal, including
+              customer KYC and an employee management system
+            </li>
+            <li>Set up CI/CD pipelines, improving release stability</li>
+            <li>
+              Set up and managed the office local area network (LAN): router and
+              switch configuration, VLAN segmentation, access control lists
+              (ACLs), firewall rules and secure Wi-Fi
+            </li>
+            <li>
+              Diagnosed IT issues, separated business from technical problems,
+              and recommended process changes and feature priorities to the
+              business
+            </li>
+          </ul>
+        </article>
+      </section>
+
+      <section id="skills">
+        <h2>Skills</h2>
+        <dl class="skills">
+          <dt>Languages</dt>
+          <dd>TypeScript, JavaScript, PHP, Java, SQL</dd>
+          <dt>Frontend</dt>
+          <dd>
+            React, Vue.js, TanStack Query, Redux, Jotai, Tailwind CSS, D3.js,
+            LiquidJS
+          </dd>
+          <dt>Architecture &amp; Patterns</dt>
+          <dd>
+            Config-driven UI, composition over configuration, adapter/mapper
+            layers, Error Boundaries + Suspense, server vs client state
+            separation, URL-driven state and deep linking, optimistic updates,
+            discriminated unions with exhaustive matching, runtime API
+            validation, contract-first APIs (OpenAPI), feature flags, design
+            systems, monorepos, microservices, MVC monoliths, caching (Redis),
+            JWT authentication and authorization
+          </dd>
+          <dt>Testing</dt>
+          <dd>
+            Playwright, Vitest, Jest, React Testing Library, MSW, Cypress,
+            Storybook, user-centric testing, network-level API mocking, visual
+            regression testing, A/B testing (ABsmartly)
+          </dd>
+          <dt>Backend &amp; APIs</dt>
+          <dd>Node.js, NestJS, Spring Boot, Laravel, GraphQL, REST</dd>
+          <dt>Data &amp; Infrastructure</dt>
+          <dd>
+            PostgreSQL, MSSQL, Redis, AWS S3, Heroku, Jenkins, CI/CD, database
+            backups, pnpm/Turborepo
+          </dd>
+          <dt>AI-Assisted Engineering</dt>
+          <dd>
+            Cursor, Codex CLI, prompt engineering, agent rules and skills, MCP
+            integrations (Jira, Slack), AI-assisted code review
+          </dd>
+          <dt>Tooling &amp; Analytics</dt>
+          <dd>Segment, Sentry, Retool</dd>
+          <dt>Networking</dt>
+          <dd>
+            LAN setup, VLANs, access control lists (ACLs), firewall
+            configuration
+          </dd>
+          <dt>Practices</dt>
+          <dd>
+            Frontend architecture, accessibility (WCAG), web performance (Core
+            Web Vitals), data visualisation, API contract design, technical debt
+            planning, mentoring
+          </dd>
+          <dt>Domains</dt>
+          <dd>
+            Ad-tech (product catalogs), payments and disputes, consumer credit
+            (BNPL), KYC and user management, renewable-energy monitoring,
+            staffing marketplaces
+          </dd>
+        </dl>
+      </section>
+
+      <section id="education">
+        <h2>Education</h2>
+        <h3>B.Eng (Hons), Computer and Electronics Engineering</h3>
+        <p class="job-meta">
+          Enugu State University of Science and Technology · 2011 – 2016
+        </p>
+      </section>
+
+      <section id="certifications">
+        <h2>Certifications</h2>
+        <ul class="bullets">
+          <li>
+            Goethe-Zertifikat A1: Start Deutsch 1 — Goethe-Institut e.V., 2026
+          </li>
+          <li>Lean Six Sigma Yellow Belt — 2019</li>
+        </ul>
+      </section>
+
+      <section id="languages">
+        <h2>Languages</h2>
+        <ul class="bullets">
+          <li>English — Native</li>
+          <li>German — Beginner (A1), actively learning</li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>
