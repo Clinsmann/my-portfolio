@@ -150,7 +150,7 @@
       h1 {
         margin: 0;
         font-family: var(--serif);
-        font-size: 2.1rem;
+        font-size: clamp(1.9rem, 1.4rem + 2vw, 2.6rem);
         font-weight: 500;
         letter-spacing: -0.01em;
         line-height: 1.15;
@@ -276,6 +276,7 @@
       li,
       dd {
         text-wrap: pretty;
+        hanging-punctuation: first;
       }
       h1,
       h2,
@@ -350,6 +351,24 @@
       }
       .sticky-bar.is-visible {
         transform: none;
+      }
+      @supports (animation-timeline: scroll()) {
+        .sticky-bar::after {
+          content: '';
+          position: absolute;
+          inset: auto 0 -1px 0;
+          height: 2px;
+          background: var(--accent);
+          transform: scaleX(0);
+          transform-origin: left center;
+          animation: scroll-progress linear both;
+          animation-timeline: scroll(root block);
+        }
+        @keyframes scroll-progress {
+          to {
+            transform: scaleX(1);
+          }
+        }
       }
       .to-top {
         position: fixed;
@@ -452,8 +471,12 @@
         }
       }
       @media (prefers-reduced-motion: reduce) {
-        main {
+        main,
+        .sticky-bar::after {
           animation: none;
+        }
+        .sticky-bar::after {
+          display: none;
         }
         a,
         .print-link,
