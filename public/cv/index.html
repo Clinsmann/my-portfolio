@@ -10,7 +10,7 @@
       content="Senior Frontend Engineer in Berlin with 8+ years of experience across ad-tech, payments, consumer credit, renewable energy and staffing marketplaces."
     />
     <link rel="canonical" href="https://www.ibeanuhillary.com/cv/" />
-    <link rel="icon" href="/cv/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" />
     <meta property="og:type" content="profile" />
     <meta property="og:url" content="https://www.ibeanuhillary.com/cv/" />
     <meta
@@ -28,6 +28,31 @@
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Hillary Ibeanu",
+        "jobTitle": "Senior Frontend Engineer",
+        "url": "https://www.ibeanuhillary.com/cv/",
+        "email": "mailto:ibeanuhillary@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Berlin",
+          "addressCountry": "DE"
+        },
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Smartly.io",
+          "url": "https://www.smartly.io"
+        },
+        "sameAs": [
+          "https://www.ibeanuhillary.com",
+          "https://www.linkedin.com/in/ibeanuhillary",
+          "https://github.com/clinsmann"
+        ]
+      }
+    </script>
     <script>
       try {
         const savedTheme = localStorage.getItem('cv-theme')
@@ -40,7 +65,7 @@
       :root {
         --text: #111;
         --text-soft: #555;
-        --muted: #888;
+        --muted: #6b6b6b;
         --line: #d4d4d4;
         --bg: #fff;
         --accent: #2f5d50;
@@ -268,15 +293,18 @@
       section {
         scroll-margin-top: 72px;
       }
-      .anchor {
+      .heading-link {
+        color: inherit;
+        background: none;
+      }
+      .hash {
         margin-left: 6px;
         color: var(--muted);
-        background: none;
         opacity: 0;
         transition: opacity 0.2s ease;
       }
-      h2:hover .anchor,
-      .anchor:focus-visible {
+      .heading-link:hover .hash,
+      .heading-link:focus-visible .hash {
         opacity: 1;
       }
 
@@ -323,6 +351,45 @@
       .sticky-bar.is-visible {
         transform: none;
       }
+      .to-top {
+        position: fixed;
+        right: 24px;
+        bottom: 24px;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        font: inherit;
+        line-height: 1;
+        color: var(--text-soft);
+        background: var(--bg);
+        border: 1px solid var(--line);
+        border-radius: 50%;
+        cursor: pointer;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(8px);
+        transition:
+          opacity 0.25s ease,
+          transform 0.25s ease,
+          color 0.25s ease;
+      }
+      .to-top.is-visible {
+        opacity: 1;
+        pointer-events: auto;
+        transform: none;
+      }
+      .to-top:hover {
+        color: var(--accent);
+        border-color: var(--accent);
+      }
+
+      header:focus {
+        outline: none;
+      }
+
       .sticky-bar-name {
         font-family: var(--serif);
         font-size: 1.05rem;
@@ -391,10 +458,14 @@
         a,
         .print-link,
         .theme-toggle,
-        .anchor,
-        .sticky-bar {
+        .hash,
+        .sticky-bar,
+        .to-top {
           transition: none;
         }
+      }
+      @page {
+        margin: 16mm;
       }
       @media print {
         :root,
@@ -430,7 +501,8 @@
         }
         .screen-only,
         .sticky-bar,
-        .anchor,
+        .to-top,
+        .hash,
         .earlier > summary {
           display: none;
         }
@@ -457,7 +529,7 @@
       </button>
     </div>
     <main>
-      <header id="page-header">
+      <header id="page-header" tabindex="-1">
         <h1>Hillary Ibeanu</h1>
         <p class="role">Senior Frontend Engineer</p>
         <ul class="contact">
@@ -481,8 +553,8 @@
 
       <section id="summary">
         <h2>
-          Summary<a class="anchor" href="#summary" aria-label="Link to Summary"
-            >#</a
+          <a class="heading-link" href="#summary"
+            >Summary<span class="hash" aria-hidden="true">#</span></a
           >
         </h2>
         <div>
@@ -506,11 +578,8 @@
 
       <section id="experience">
         <h2>
-          Experience<a
-            class="anchor"
-            href="#experience"
-            aria-label="Link to Experience"
-            >#</a
+          <a class="heading-link" href="#experience"
+            >Experience<span class="hash" aria-hidden="true">#</span></a
           >
         </h2>
         <div class="timeline">
@@ -663,7 +732,7 @@
               <h3>Frontend Engineer — Jungle.ai</h3>
               <span class="dates">Nov 2021 – May 2022</span>
             </div>
-            <p class="job-meta">Portugal</p>
+            <p class="job-meta">Portugal — Remote</p>
             <p class="job-context">
               Jungle.ai builds Canopy, an AI platform that detects abnormal
               behaviour in wind and solar assets from SCADA sensor data.
@@ -791,8 +860,8 @@
 
       <section id="skills">
         <h2>
-          Skills<a class="anchor" href="#skills" aria-label="Link to Skills"
-            >#</a
+          <a class="heading-link" href="#skills"
+            >Skills<span class="hash" aria-hidden="true">#</span></a
           >
         </h2>
         <dl class="skills">
@@ -855,11 +924,8 @@
 
       <section id="education">
         <h2>
-          Education<a
-            class="anchor"
-            href="#education"
-            aria-label="Link to Education"
-            >#</a
+          <a class="heading-link" href="#education"
+            >Education<span class="hash" aria-hidden="true">#</span></a
           >
         </h2>
         <div>
@@ -875,11 +941,8 @@
 
       <section id="certifications">
         <h2>
-          Certifications<a
-            class="anchor"
-            href="#certifications"
-            aria-label="Link to Certifications"
-            >#</a
+          <a class="heading-link" href="#certifications"
+            >Certifications<span class="hash" aria-hidden="true">#</span></a
           >
         </h2>
         <ul class="bullets">
@@ -892,15 +955,13 @@
 
       <section id="languages">
         <h2>
-          Languages<a
-            class="anchor"
-            href="#languages"
-            aria-label="Link to Languages"
-            >#</a
+          <a class="heading-link" href="#languages"
+            >Languages<span class="hash" aria-hidden="true">#</span></a
           >
         </h2>
         <ul class="bullets">
           <li>English — Native</li>
+          <li>Igbo — Native</li>
           <li>German — Beginner (A1), actively learning</li>
         </ul>
       </section>
@@ -911,6 +972,16 @@
         </button>
       </footer>
     </main>
+
+    <button
+      type="button"
+      class="to-top"
+      id="to-top"
+      aria-label="Back to top"
+      tabindex="-1"
+    >
+      ↑
+    </button>
     <script>
       const collapsed = []
       window.addEventListener('beforeprint', () => {
@@ -925,14 +996,29 @@
         })
       })
 
+      const pageHeader = document.getElementById('page-header')
       const bar = document.getElementById('sticky-bar')
       const barButton = bar.querySelector('button')
+      const toTop = document.getElementById('to-top')
       new IntersectionObserver(([entry]) => {
         const visible = !entry.isIntersecting
         bar.classList.toggle('is-visible', visible)
         bar.setAttribute('aria-hidden', String(!visible))
         barButton.tabIndex = visible ? 0 : -1
-      }).observe(document.getElementById('page-header'))
+        toTop.classList.toggle('is-visible', visible)
+        toTop.tabIndex = visible ? 0 : -1
+      }).observe(pageHeader)
+
+      const reducedMotion = window.matchMedia(
+        '(prefers-reduced-motion: reduce)'
+      )
+      toTop.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: reducedMotion.matches ? 'auto' : 'smooth',
+        })
+        pageHeader.focus({ preventScroll: true })
+      })
 
       const root = document.documentElement
       const themeToggle = document.getElementById('theme-toggle')

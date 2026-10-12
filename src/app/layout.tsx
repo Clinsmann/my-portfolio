@@ -73,9 +73,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
       <body className={inter.className}>
-        { }
+        {}
         <Script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
